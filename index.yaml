@@ -1,0 +1,11 @@
+apiVersion: v1
+entries:
+  ToolJet:
+  - apiVersion: v2
+    created: "2022-03-03T17:47:28.430356837Z"
+    digest: a845630d161ea4abc6a6a6c90b45dacee469438c9d48446fc7af85b316ecf2d5
+    name: ToolJet
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/ToolJet-0.0.1/ToolJet-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-03-03T17:47:28.196421379Z"
