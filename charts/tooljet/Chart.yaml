@@ -1,3 +1,13 @@
 apiVersion: v2
 name: ToolJet
 version: 0.0.1
+sources:
+- https://tooljet.com
+- https://github.com/tooljet/tooljet
+maintainers:
+  - name: Krzwiatrzyk
+    email: krzwiatrzyk@protonmail.com
+keywords:
+  - "tooljet"
+annotations:
+  "artifacthub.io/prerelease": "true"
