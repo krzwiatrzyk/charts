@@ -1,0 +1,106 @@
+{{/* Renders the IngressRoute objects required by the chart */}}
+{{- define "custom.ingressRoute" -}}
+  {{- /* Generate named ingresses as required */ -}}
+  {{- range $name, $ingressRoute := .Values.ingressRoute }}
+    {{- if $ingressRoute.enabled -}}
+      {{- $ingressRouteValues := $ingressRoute -}}
+
+      {{/* set defaults */}}
+      {{- if and (not $ingressRouteValues.nameOverride) (ne $name (include "custom.ingressRoute.primary" $)) -}}
+        {{- $_ := set $ingressRouteValues "nameOverride" $name -}}
+      {{- end -}}
+
+      {{- $_ := set $ "ObjectValues" (dict "ingressRoute" $ingressRouteValues) -}}
+      {{- include "custom.classes.ingressRoutes" $ }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{/* Return the name of the primary ingressRoute object */}}
+{{- define "custom.ingressRoute.primary" -}}
+  {{- $enabledIngressRoutes := dict -}}
+  {{- range $name, $ingressRoute := .Values.ingressRoute -}}
+    {{- if $ingressRoute.enabled -}}
+      {{- $_ := set $enabledIngressRoutes $name . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $result := "" -}}
+  {{- range $name, $ingressRoutes := $enabledIngressRoutes -}}
+    {{- if and (hasKey $ingressRoutes "primary") $ingressRoutes.primary -}}
+      {{- $result = $name -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if not $result -}}
+    {{- $result = keys $enabledIngressRoutes | first -}}
+  {{- end -}}
+  {{- $result -}}
+{{- end -}}
+
+{{/*
+This template serves as a blueprint for all IngressRoutes objects that are created
+within the custom library.
+*/}}
+{{- define "custom.classes.ingressRoutes" -}}
+  {{- $fullName := include "common.names.fullname" . -}}
+  {{- $ingressRouteName := $fullName -}}
+  {{- $values := .Values.ingressRoute -}}
+
+  {{- if hasKey . "ObjectValues" -}}
+    {{- with .ObjectValues.ingressRoute -}}
+      {{- $values = . -}}
+    {{- end -}}
+  {{ end -}}
+
+  {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
+    {{- $ingressRouteName = printf "%v-%v" $ingressRouteName $values.nameOverride -}}
+  {{- end -}}
+
+  {{- $primaryService := get .Values.service (include "common.service.primary" .) -}}
+  {{- $defaultServiceName := $fullName -}}
+  {{- if and (hasKey $primaryService "nameOverride") $primaryService.nameOverride -}}
+    {{- $defaultServiceName = printf "%v-%v" $defaultServiceName $primaryService.nameOverride -}}
+  {{- end -}}
+  {{- $defaultServicePort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
+---
+apiVersion: {{ include "custom.capabilities.ingressRoute.apiVersion" . }}
+kind: IngressRoute
+metadata:
+  name: {{ $ingressRouteName }}
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+    {{- with $values.labels }}
+       {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with $values.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  entrypoints:
+  - web
+  - websecure
+  routes:
+  {{- range $values.hosts }}
+    - kind: Rule
+      match: Host(`{{ tpl .host $ }}`)
+      {{- range .paths }}
+        {{- $service := $defaultServiceName -}}
+        {{- $port := $defaultServicePort.port -}}
+        {{- if .service -}}
+          {{- $service = default $service .service.name -}}
+          {{- $port = default $port .service.port -}}
+        {{- end }}
+      services:
+      - kind: Service
+        name:  {{ $service }}
+        port:  {{ $port }}
+      {{- end }}
+  {{- end }}
+{{- end }}
+
+{{/* Return the appropriate apiVersion for IngressRoute objects */}}
+{{- define "custom.capabilities.ingressRoute.apiVersion" -}}
+  {{- print "traefik.containo.us/v1alpha1" -}}
+{{- end -}}

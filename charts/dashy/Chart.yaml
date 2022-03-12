@@ -1,0 +1,23 @@
+name: dashy
+apiVersion: v2
+appVersion: 2.0.3
+version: 0.0.1
+maintainers:
+- name: Krzysztof Wiatrzyk
+  email: krzwiatrzyk@protonmail.com
+sources:
+- https://dashy.to
+- https://github.com/Lissy93/dashy
+keywords:
+  - "dashy"
+annotations:
+  "artifacthub.io/prerelease": "true"
+  "artifacthub.io/changes": |
+    - kind: added
+      description: First release
+kubeVersion: ">1.16.0"
+icon: https://dashy.to/img/dashy.png
+dependencies:
+- name: common
+  version: "~4.3.0"
+  repository: https://library-charts.k8s-at-home.com
