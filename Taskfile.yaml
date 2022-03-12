@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  lint-all-charts:
+    vars:
+      CHARTS:
+        sh: ls
+    cmds:
+      - helm lint {{ .CHARTS }}
+    dir: charts
+    silent: true
