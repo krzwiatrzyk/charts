@@ -25,4 +25,32 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/ToolJet-0.0.1/ToolJet-0.0.1.tgz
     version: 0.0.1
-generated: "2022-03-03T17:47:28.196421379Z"
+  dashy:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: added
+          description: First release
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 2.0.3
+    created: "2022-03-13T11:57:40.86365347Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: 74f22524e0a29ca1d4fc1cc129df1ce50ff963c5519ec88c3b958fb5418fff4d
+    icon: https://dashy.to/img/dashy.png
+    keywords:
+    - dashy
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: dashy
+    sources:
+    - https://dashy.to
+    - https://github.com/Lissy93/dashy
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.1/dashy-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-03-13T11:57:40.863669972Z"
