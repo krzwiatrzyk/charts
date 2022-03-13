@@ -28,6 +28,33 @@ entries:
   dashy:
   - annotations:
       artifacthub.io/changes: |
+        - kind: fixed
+          description: README.md file
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 2.0.3
+    created: "2022-03-13T12:10:17.264557635Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: 5b0fae3bdca6a7adf95bbcd0ff495d373d11048ce1f2e046a9f7fc7bdd0c7bdc
+    icon: https://dashy.to/img/dashy.png
+    keywords:
+    - dashy
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: dashy
+    sources:
+    - https://dashy.to
+    - https://github.com/Lissy93/dashy
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.2/dashy-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      artifacthub.io/changes: |
         - kind: added
           description: First release
       artifacthub.io/prerelease: "true"
@@ -53,4 +80,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.1/dashy-0.0.1.tgz
     version: 0.0.1
-generated: "2022-03-13T11:57:40.863669972Z"
+generated: "2022-03-13T12:10:17.264578836Z"
