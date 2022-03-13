@@ -1,7 +1,7 @@
 name: dashy
 apiVersion: v2
 appVersion: 2.0.3
-version: 0.0.1
+version: 0.0.2
 maintainers:
 - name: Krzysztof Wiatrzyk
   email: krzwiatrzyk@protonmail.com
@@ -13,8 +13,8 @@ keywords:
 annotations:
   "artifacthub.io/prerelease": "true"
   "artifacthub.io/changes": |
-    - kind: added
-      description: First release
+    - kind: fixed
+      description: README.md file
 kubeVersion: ">1.16.0"
 icon: https://dashy.to/img/dashy.png
 dependencies:

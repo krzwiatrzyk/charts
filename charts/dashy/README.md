@@ -1,3 +1,5 @@
+# Dashy
+
 # Badges
 
 <a href="https://hub.docker.com/r/lissy93/dashy"><img alt="Dashy on Docker Hub" src="https://dockeri.co/image/lissy93/dashy"></a>
@@ -8,12 +10,16 @@
 > <br> I am not in any kind owner of Dashy, for the tool license please refer to: https://github.com/ToolJet/ToolJet
 > <br> This is only my self-made chart which is licensed with __Apache-2__. 
 
+# Config
+
 As for now, each restart of the container will cause Dashy to loose current config.
 To have your own config persistent please use following command to install Dashy:
 
 `helm upgrade --install --set-file configMap.config.data."config\.yml"=config.yml`
 
 Where `config.yml` at the end points to Dashy config prepared by you.
+
+# ToDo
 
 ToDo:
 - allow IngressRoute to use TLS from values (currently not supported)
