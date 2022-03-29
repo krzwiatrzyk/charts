@@ -78,7 +78,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  entrypoints:
+  entryPoints:
   - web
   - websecure
   routes:

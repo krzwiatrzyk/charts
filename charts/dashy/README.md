@@ -1,13 +1,8 @@
 # Dashy
-
-# Badges
-
-<a href="https://hub.docker.com/r/lissy93/dashy"><img alt="Dashy on Docker Hub" src="https://dockeri.co/image/lissy93/dashy"></a>
-
 # Legal
 
 > NOTE! 
-> <br> I am not in any kind owner of Dashy, for the tool license please refer to: https://github.com/ToolJet/ToolJet
+> <br> I am not in any kind owner of Dashy, for the tool license please refer to: https://github.com/Lissy93/dashy
 > <br> This is only my self-made chart which is licensed with __Apache-2__. 
 
 # Config
