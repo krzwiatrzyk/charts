@@ -1,0 +1,9 @@
+initContainers:
+  seed-db:
+    name: seed-db
+    image: '{{ .Values.image.repository }}/{{ .Values.image.tag }}'
+    args:
+    - "npm"
+    - "run"
+    - "start:prod"
+    env: {{ toYaml .Values.env | nindent 6 }}
