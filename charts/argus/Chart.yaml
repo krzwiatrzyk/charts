@@ -1,0 +1,20 @@
+apiVersion: v2
+name: argus
+version: 0.0.1
+appVersion: 0.4.1
+sources:
+- https://github.com/release-argus/Argus
+- https://release-argus.io
+maintainers:
+  - name: Krzwiatrzyk
+    email: krzwiatrzyk@protonmail.com
+keywords:
+  - "argus"
+annotations:
+  "artifacthub.io/prerelease": "true"
+kubeVersion: ">=1.20.0"
+dependencies:
+- name: common
+  version: "~9.3.0"
+  repository: https://library-charts.truecharts.org
+

@@ -1,6 +1,6 @@
 apiVersion: v2
 name: tooljet
-version: 0.0.2
+version: 0.0.3
 appVersion: v1.13.3
 sources:
 - https://tooljet.com

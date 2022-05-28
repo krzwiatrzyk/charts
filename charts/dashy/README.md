@@ -20,6 +20,7 @@ ToDo:
 - allow IngressRoute to use TLS from values (currently not supported)
 - store current configuration in PVC (persistent config during restarts)
 - extract ingressRoute custom library modules to external charts (another dependency will be included)
+- if configMap is used as persistance add auto reloading of the pod if configMap changes
 
 
 

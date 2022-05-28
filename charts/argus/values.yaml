@@ -1,0 +1,76 @@
+# Default user, password with seed init (npm run db:seed): dev@tooljet.io/password
+
+config:
+  # service:
+  #   dani-garcia/vaultwarden:
+  #     type: github
+  #     url: dani-garcia/vaultwarden
+  #     web_url: https://github.com/dani-garcia/vaultwarden/releases/{{ version }}
+  #     icon: https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/src/static/images/vaultwarden-icon.png
+  #     deployed_version:
+  #       url: https://vaultwarden.example.io/api/version
+  #       regex: ([0-9.]+)
+
+configmap:
+  config:
+    enabled: true
+    data: 
+      config.yml: | 
+        {{- .Values.config | toYaml | nindent 2 }}
+
+persistence:
+  config:
+    enabled: true
+    type: configMap
+    mountPath: /etc/argus
+    objectName: argus-config
+
+image:
+  repository: releaseargus/argus
+  tag: 0.4.1
+
+# args:
+# - "-config.file=/home/argus/argus/config.yml"
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+        targetPort: 8080
+  
+resources:
+  limits:
+    memory: "256Mi"
+    cpu: "200m"
+  requests:
+    memory: "128Mi"
+    cpu: "100m"
+
+probes:
+  liveness:
+    enabled: false
+
+  readiness:
+    enabled: true
+    custom: false
+    type: TCP
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      timeoutSeconds: 5
+      failureThreshold: 6
+
+ingress:
+  main:
+    enabled: false
+    primary: true
+    autoLink: true
+    enableFixedMiddlewares: false
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    hosts:
+      - host: argus.127.0.0.1.nip.io
+        paths:
+          - path: /
+            pathType: Prefix

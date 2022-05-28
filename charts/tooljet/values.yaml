@@ -16,8 +16,6 @@ service:
         port: 3000
         targetPort: 3000
 
-
-
 env:
   PG_HOST: "tooljet-postgresql"
   PG_USER: '{{ .Values.postgresql.auth.username }}'
@@ -68,7 +66,7 @@ postgresql:
 
 ingress:
   main:
-    enabled: true
+    enabled: false
     primary: true
     autoLink: true
     enableFixedMiddlewares: false
@@ -77,7 +75,5 @@ ingress:
     hosts:
       - host: tooljet.127.0.0.1.nip.io
         paths:
-          -  # -- Path.  Helm template can be passed.
-            path: /
-            # -- Ignored if not kubeVersion >= 1.14-0
+          - path: /
             pathType: Prefix
