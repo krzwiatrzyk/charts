@@ -30,6 +30,33 @@ entries:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
     appVersion: 0.4.1
+    created: "2022-06-14T20:32:56.452587626Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: ~9.3.0
+    - condition: extensions.pav
+      name: pav
+      repository: https://krzwiatrzyk.github.io/charts/
+      version: 0.0.x
+    digest: 56276039a0eced11cdfa173ecb5bb03fa46244c158e8a64052721121bf0bf9af
+    keywords:
+    - argus
+    kubeVersion: '>=1.20.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzwiatrzyk
+    name: argus
+    sources:
+    - https://github.com/release-argus/Argus
+    - https://release-argus.io
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/argus-0.0.2/argus-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 0.4.1
     created: "2022-05-28T14:40:05.763672056Z"
     dependencies:
     - name: common
@@ -177,4 +204,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/tooljet-0.0.3/tooljet-0.0.3.tgz
     version: 0.0.3
-generated: "2022-06-14T20:14:26.165221091Z"
+generated: "2022-06-14T20:32:56.452605326Z"
