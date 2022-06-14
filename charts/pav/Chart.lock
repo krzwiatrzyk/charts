@@ -1,0 +1,9 @@
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.3.21
+- name: argus
+  repository: https://krzwiatrzyk.github.io/charts/
+  version: 0.0.1
+digest: sha256:5ce086a5d94e8e82586a12926f3f503849d10f604a6719c3e78c130e10d85a93
+generated: "2022-05-28T16:51:28.342319585+02:00"

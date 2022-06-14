@@ -1,0 +1,35 @@
+apps:
+  app1: 1.0.0
+  app2: 2.0.0
+
+image:
+  repository: witcherek7/pav
+  tag: 0.0.2
+
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+
+configmap:
+  config:
+    enabled: true
+    data: 
+      versions.yaml: | 
+        {{- .Values.apps | toYaml | nindent 2 }}
+
+persistence:
+  config:
+    enabled: true
+    type: configMap
+    mountPath: /app/data
+    objectName: pav-config
+
+resources:  
+  limits:
+    cpu: 50m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi

@@ -1,0 +1,9 @@
+version: 3
+
+tasks:
+  tests:with-argus:template:
+  - helm template . -f test-values/with-argus.yaml
+
+  tests:with-argus:install:
+  - helm upgrade --install pav . -f test-values/with-argus.yaml
+
