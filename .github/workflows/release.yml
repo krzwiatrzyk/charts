@@ -33,6 +33,9 @@ jobs:
       - name: Add bitnami repo
         run: helm repo add bitnami https://charts.bitnami.com/bitnami 
 
+      - name: Add krzwiatrzyk repo
+        run: helm repo add krzwiatrzyk https://krzwiatrzyk.github.io/charts/
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.3.0
         env:
