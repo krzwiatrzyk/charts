@@ -1,6 +1,6 @@
 apiVersion: v2
 name: argus
-version: 0.0.1
+version: 0.0.2
 appVersion: 0.4.1
 sources:
 - https://github.com/release-argus/Argus
@@ -17,7 +17,7 @@ dependencies:
 - name: common
   version: "~9.3.0"
   repository: https://library-charts.truecharts.org
-# - name: pav
-#   repository: https://krzwiatrzyk.github.io/charts/
-#   version: '0.0.x'
-#   condition: extensions.pav
+- name: pav
+  repository: https://krzwiatrzyk.github.io/charts/
+  version: '0.0.x'
+  condition: extensions.pav

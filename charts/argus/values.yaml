@@ -86,9 +86,9 @@ extensions:
   pav: false
 
 # pav:
-#  persistence:
-#   config:
-#     objectName: argus-pav-config
+#   persistence:
+#     config:
+#       objectName: argus-pav-config
 #   apps:
 #     vaultwarden: 1.0.0
 

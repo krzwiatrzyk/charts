@@ -2,5 +2,8 @@ dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
   version: 9.3.29
-digest: sha256:53d08511752d9fdc5243ff1834cbcac08f0a4cff1154e6201301473525ff62f0
-generated: "2022-06-14T22:13:47.5630728+02:00"
+- name: pav
+  repository: https://krzwiatrzyk.github.io/charts/
+  version: 0.0.1
+digest: sha256:8f85154f09eb835deee5eefafdefc520240005f11ca7602d9fb10afef5e81ddc
+generated: "2022-06-14T22:15:33.319114457+02:00"
