@@ -133,6 +133,22 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.1/dashy-0.0.1.tgz
     version: 0.0.1
+  pav:
+  - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2022-06-14T20:14:26.16520709Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.3.x
+    digest: 793a1813e7f26259d195e9393f021a9535e38d8f4b75844c85bca8a0b55bef7e
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: pav
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/pav-0.0.1/pav-0.0.1.tgz
+    version: 0.0.1
   tooljet:
   - annotations:
       artifacthub.io/prerelease: "true"
@@ -161,4 +177,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/tooljet-0.0.3/tooljet-0.0.3.tgz
     version: 0.0.3
-generated: "2022-05-28T14:40:06.013241145Z"
+generated: "2022-06-14T20:14:26.165221091Z"
