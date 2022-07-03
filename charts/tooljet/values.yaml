@@ -1,8 +1,11 @@
-# Default user, password with seed init (npm run db:seed): dev@tooljet.io/password
+# Default user, password: dev@tooljet.io/password
+
+custom:
+  host: tooljet.127.0.0.1.nip.io
 
 image:
   repository: tooljet/tooljet-ce
-  tag: v1.13.3
+  tag: v1.18.0
 
 args:
 - "npm"
@@ -12,11 +15,12 @@ args:
 service:
   main:
     ports:
-      main:
+      http:
         port: 3000
         targetPort: 3000
 
 env:
+  DEPLOYMENT_PLATFORM: "k8s"
   PG_HOST: "tooljet-postgresql"
   PG_USER: '{{ .Values.postgresql.auth.username }}'
   PG_PASS: '{{ .Values.postgresql.auth.password }}'
@@ -25,7 +29,7 @@ env:
   LOCKBOX_MASTER_KEY: 183f0811f07b4c83428ce2931c245b30bec41e8ad75879de4ed2d55c5bfd2a83
   # Result of: openssl rand -hex 64
   SECRET_KEY_BASE: c42668b1d76fcce93acac8efbb8c62695dfba9960777e7ab89d6b8d43fb703345d98cf563c9f97676b09cfbc9b99e9dacef265075ae9fbb6fe0e6e141bd0210e
-  TOOLJET_HOST: 'https://{{ index .Values.ingress.main.hosts 0 "host" }}'
+  TOOLJET_HOST: 'https://{{ .Values.custom.host }}'
   
 resources:
   limits:
@@ -42,7 +46,6 @@ probes:
   readiness:
     enabled: true
     custom: false
-    type: TCP
     spec:
       initialDelaySeconds: 10
       periodSeconds: 5
@@ -50,13 +53,13 @@ probes:
       failureThreshold: 6
 
 postgresql:
-  # resources:
-  #   requests:
-  #     memory: 1Gi
-  #     cpu: 500m
-  #   limits:
-  #     memory: 2Gi
-  #     cpu: 2
+  resources:
+    requests:
+      memory: 1Gi
+      cpu: 500m
+    limits:
+      memory: 2Gi
+      cpu: 2
   auth:
     postgresPassword: postgres
     username: tooljet
@@ -66,14 +69,17 @@ postgresql:
 
 ingress:
   main:
-    enabled: false
-    primary: true
-    autoLink: true
-    enableFixedMiddlewares: false
+    enabled: true
     annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
     hosts:
-      - host: tooljet.127.0.0.1.nip.io
+      - host: "{{ .Values.custom.host }}"
         paths:
           - path: /
             pathType: Prefix
+
+# -- Configure the lifecycle for the main container
+lifecycle:
+  postStart:
+    exec:
+      command: ["/bin/sh", "-c", "npm run db:seed"]

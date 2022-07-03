@@ -1,9 +1,9 @@
 dependencies:
 - name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.17
+  repository: https://library-charts.k8s-at-home.com
+  version: 4.3.0
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 11.2.4
-digest: sha256:e2a071db3c1c433ff3ac86e9be52aaa0926607a612e9239a2619b4e21555240e
-generated: "2022-05-20T12:33:21.082961791+02:00"
+  version: 11.2.6
+digest: sha256:d1f2fba6502af24601c4f6579b8071f421af05a9368c1f1ec76f4cf823c52740
+generated: "2022-07-03T16:49:42.103096956+02:00"
