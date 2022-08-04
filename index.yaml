@@ -160,6 +160,14 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.1/dashy-0.0.1.tgz
     version: 0.0.1
+  namespace-management:
+  - apiVersion: v2
+    created: "2022-08-04T14:54:59.037607881Z"
+    digest: 2ee0b11f4b3874e942c390e41fe56e4168e4a7a65769d114d94c86f08de870ed
+    name: namespace-management
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/namespace-management-0.0.1/namespace-management-0.0.1.tgz
+    version: 0.0.1
   pav:
   - apiVersion: v2
     appVersion: 0.0.2
@@ -233,4 +241,12 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/tooljet-0.0.3/tooljet-0.0.3.tgz
     version: 0.0.3
-generated: "2022-07-03T16:43:06.530028269Z"
+  user-management:
+  - apiVersion: v2
+    created: "2022-08-04T14:54:59.189969535Z"
+    digest: b04eb8322f99bd149aeb58cd2ccc440251c8abf3e180fa5158863bd34c701baf
+    name: user-management
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/user-management-0.0.1/user-management-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-08-04T14:54:59.190095636Z"
