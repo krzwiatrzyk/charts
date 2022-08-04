@@ -1,0 +1,16 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: namespace-viewers
+  namespace: users
+subjects:
+  {{- range index .Values "service-accounts" }}
+  - kind: ServiceAccount
+    name: {{ . }}
+    namespace: users
+  {{- end }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: namespace-view
+

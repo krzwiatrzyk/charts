@@ -1,0 +1,5 @@
+# Add cluster role to user 
+cluster-admins: []
+
+# Create ServiceAccount in "user" namespace
+service-accounts: []

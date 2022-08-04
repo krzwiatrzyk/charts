@@ -1,0 +1,14 @@
+namespaces: [] 
+# - name: example
+#   admins: []
+#   viewers: []
+#   enabled: true
+#   resourceQuota:
+#     cpuRequests: 4
+#     cpuLimits: 4
+#     memoryRequests: 4Gi
+#     memoryLimits: 6Gi
+
+
+  
+  
