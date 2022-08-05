@@ -1,0 +1,69 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: "{{ .Release.Name }}"
+spec:
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        spec:
+          restartPolicy: Never
+          initContainers:
+            - command:
+              - /bin/sh
+              - -c
+              - "pg_dump | gzip > /backups/{{ .Values.backupFileNamePrefix }}-$(date +%d-%m-%y).sql.gz"
+              env:
+              - name: PGUSER
+                value: "{{ .Values.postgres.user }}"
+              - name: PGHOST
+                value: "{{ .Values.postgres.host }}"
+              - name: PGPASSWORD
+                value: "{{ .Values.postgres.password }}"
+              - name: PGPORT
+                value: "{{ .Values.postgres.port}}"
+              - name: PGDATABASE
+                value: "{{ .Values.postgres.db }}"
+              image: "{{ .Values.postgres.image.name }}:{{ .Values.postgres.image.version }}"
+              name: pgdump
+              resources: {{ .Values.resources | toYaml | nindent 16 }}
+              securityContext: {{ .Values.securityContext | toYaml | nindent 16 }}
+              volumeMounts:
+              - mountPath: /backups
+                name: postgres-backups
+          containers:
+            - command:
+              - /bin/sh
+              - -c
+              - |
+                mkdir -p /tmp/mc
+                echo "mc -C /tmp/mc alias set --insecure minio0 ${S3_HOST} ${S3_ACCESS_KEY} ${S3_SECRET_KEY}" &&
+                mc -C /tmp/mc alias set --insecure minio0 "${S3_HOST}" "${S3_ACCESS_KEY}" "${S3_SECRET_KEY}" && 
+                mc -C /tmp/mc cp /backups/{{ .Values.backupFileNamePrefix }}-$(date +%d-%m-%y).sql.gz minio0/${S3_BUCKET}/
+                
+              image: "{{ .Values.s3.image.name }}:{{ .Values.s3.image.version }}"
+              name: s3-upload
+              env:
+                - name: S3_HOST
+                  value: {{ .Values.s3.host | quote }}
+                - name: S3_ACCESS_KEY
+                  value: {{ .Values.s3.accessKey | quote }}
+                - name: S3_SECRET_KEY
+                  value: {{ .Values.s3.secretKey | quote }}
+                - name: S3_BUCKET
+                  value: {{ .Values.s3.bucket | quote }}
+              resources: {{ .Values.resources | toYaml | nindent 16 }}
+              securityContext: {{ .Values.securityContext | toYaml | nindent 16 }}
+              volumeMounts:
+              - mountPath: /backups
+                name: postgres-backups
+          volumes:
+          - name: postgres-backups
+            persistentVolumeClaim:
+              claimName: "{{ .Release.Name }}"
+  schedule: "{{ .Values.schedule }}"
+  successfulJobsHistoryLimit: 2

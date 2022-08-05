@@ -1,0 +1,45 @@
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+backupFileNamePrefix: 
+
+postgres:
+  user: postgres
+  password: ""
+  host: "localhost"
+  port: ""
+  image:
+    name: postgres
+    version: 14.1
+
+s3:
+  host: "https://IP:PORT"
+  secretKey: ""
+  accessKey: ""
+  bucket: ""
+  image:
+    name: nexus.czk.comarch/minio/mc
+    version: RELEASE.2022-07-29T19-17-16Z
+
+schedule: '50 4 * * *'
+
+backupStorage: 10Gi

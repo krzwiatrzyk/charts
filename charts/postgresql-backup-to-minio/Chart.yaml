@@ -1,0 +1,4 @@
+apiVersion: v2
+name: postgresql-backup-to-minio
+version: 0.0.1
+
