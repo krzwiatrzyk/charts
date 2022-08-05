@@ -184,6 +184,14 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/pav-0.0.1/pav-0.0.1.tgz
     version: 0.0.1
+  postgresql-backup-to-minio:
+  - apiVersion: v2
+    created: "2022-08-05T14:09:31.007987656Z"
+    digest: 24e0876b27a786030711be1c897fa98460070879f719a7bd4b3b3b07731c3d05
+    name: postgresql-backup-to-minio
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/postgresql-backup-to-minio-0.0.1/postgresql-backup-to-minio-0.0.1.tgz
+    version: 0.0.1
   tooljet:
   - annotations:
       artifacthub.io/changes: |
@@ -249,4 +257,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/user-management-0.0.1/user-management-0.0.1.tgz
     version: 0.0.1
-generated: "2022-08-04T14:54:59.190095636Z"
+generated: "2022-08-05T14:09:31.008004956Z"
