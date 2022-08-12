@@ -168,6 +168,30 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/namespace-management-0.0.1/namespace-management-0.0.1.tgz
     version: 0.0.1
+  ohmyform:
+  - annotations:
+      artifacthub.io/changes: ""
+    apiVersion: v2
+    appVersion: 1.0.3
+    created: "2022-08-12T06:08:11.471514207Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.3.x
+    digest: 2dd77baa1b282e4fa6f2793231fa2ba895a8161072dbf9cb08e05c9c86c5a7ff
+    keywords:
+    - ohmyform
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzwiatrzyk
+    name: ohmyform
+    sources:
+    - http://ohmyform.com/
+    - https://github.com/ohmyform/ohmyform
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/ohmyform-0.0.1/ohmyform-0.0.1.tgz
+    version: 0.0.1
   pav:
   - apiVersion: v2
     appVersion: 0.0.2
@@ -257,4 +281,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/user-management-0.0.1/user-management-0.0.1.tgz
     version: 0.0.1
-generated: "2022-08-05T14:09:31.008004956Z"
+generated: "2022-08-12T06:08:11.471539008Z"
