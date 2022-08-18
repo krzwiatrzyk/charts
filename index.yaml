@@ -281,4 +281,26 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/user-management-0.0.1/user-management-0.0.1.tgz
     version: 0.0.1
-generated: "2022-08-12T06:08:11.471539008Z"
+  zitadel:
+  - apiVersion: v2
+    appVersion: v2.1.1-amd64
+    created: "2022-08-18T11:08:13.571798041Z"
+    dependencies:
+    - condition: cockroachdb.enabled
+      name: cockroachdb
+      repository: https://charts.cockroachdb.com/
+      version: ~8.0.0
+    description: A Helm chart for ZITADEL v2
+    digest: 662a12e097bd00a1b2584be8baf190096fc3523d88f1f40122502b92c551b4c1
+    icon: https://zitadel.zitadel.cloud/ui/login/resources/themes/zitadel/logo-dark.svg
+    kubeVersion: '>= 1.16.15-0'
+    maintainers:
+    - email: support@zitadel.com
+      name: zitadel
+      url: https://zitadel.com
+    name: zitadel
+    type: application
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
+    version: 3.0.1
+generated: "2022-08-18T11:08:13.571849642Z"
