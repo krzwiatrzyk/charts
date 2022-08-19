@@ -187,6 +187,13 @@ entries:
     version: 0.0.1
   namespace-management:
   - apiVersion: v2
+    created: "2022-08-19T19:52:08.165579782Z"
+    digest: b553a6fc433a16fc8d383295ba9cdc7462c73d18464458c77a111fd0bb954fd4
+    name: namespace-management
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/namespace-management-0.0.2/namespace-management-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     created: "2022-08-04T14:54:59.037607881Z"
     digest: 2ee0b11f4b3874e942c390e41fe56e4168e4a7a65769d114d94c86f08de870ed
     name: namespace-management
@@ -328,4 +335,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-08-19T19:37:01.30220576Z"
+generated: "2022-08-19T19:52:08.165789387Z"
