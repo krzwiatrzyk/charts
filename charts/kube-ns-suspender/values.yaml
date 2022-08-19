@@ -4,6 +4,11 @@ ingressRoute:
   # - name: basic-auth
   #   namespace: traefik
 
+certificate:
+  enabled: false
+  clusterIssuer: test
+  dnsName: test
+
 resources:
   requests:
     cpu: 10m
