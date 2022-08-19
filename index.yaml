@@ -78,6 +78,31 @@ entries:
     version: 0.0.1
   dashy:
   - annotations:
+      artifacthub.io/changes: "- kind: added\n  description: configuration storage
+        as PVC \n- kind: added\n  description: custom readiness check\n"
+    apiVersion: v2
+    appVersion: 2.1.1
+    created: "2022-08-19T20:36:58.304557695Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: b2c3609878e8058c602f390b2c82f9e7ebdf2426d1c4ac00113e8190e4735bac
+    icon: https://dashy.to/img/dashy.png
+    keywords:
+    - dashy
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: dashy
+    sources:
+    - https://dashy.to
+    - https://github.com/Lissy93/dashy
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/dashy-1.0.0/dashy-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
       artifacthub.io/changes: |
         - kind: fixed
           description: README.md file
@@ -335,4 +360,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-08-19T19:52:08.165789387Z"
+generated: "2022-08-19T20:36:58.304591095Z"
