@@ -7,12 +7,19 @@
 
 image:
   # -- image repository
-  repository: lissy93/dashy
+  repository: ghcr.io/lissy93/dashy
   # -- image pull policy
   pullPolicy: Always
 
 # -- Specifies whether a service account token should be automatically mounted.
 automountServiceAccountToken: false
+
+command: ["/bin/sh"]
+args:
+- -c
+- |
+  [[ -f /app/public/conf.yml ]] || cp /tmp/conf.yml /app/public/conf.yml && \
+  yarn build-and-start 
 
 # -- Configure configMaps for the chart here.
 # Additional configMaps can be added by adding a dictionary key similar to the 'config' object.
@@ -44,20 +51,17 @@ probes:
       timeoutSeconds: 1
       failureThreshold: 3
 
-  # -- Redainess probe configuration
-  # @default -- See below
   readiness:
-    # -- Enable the readiness probe
     enabled: true
-    # -- Set this to `true` if you wish to specify your own readinessProbe
-    custom: false
-    # -- The spec field contains the values for the default readinessProbe.
-    # If you selected `custom: true`, this field holds the definition of the readinessProbe.
-    # @default -- See below
+    custom: true
     spec:
-      initialDelaySeconds: 10
+      exec:
+        command:
+        - yarn
+        - health-check
+      initialDelaySeconds: 30
       periodSeconds: 10
-      timeoutSeconds: 1
+      timeoutSeconds: 2
       failureThreshold: 3
 
   # -- Startup probe configuration
@@ -97,33 +101,31 @@ service:
 persistence:
   # -- Default persistence for configuration files.
   # @default -- See below
-  config:
+  data:
     # -- Enables or disables the persistence item
     enabled: true
-
+    accessMode: ReadWriteOnce
     # -- Sets the persistence type
     # Valid options are pvc, emptyDir, hostPath, secret, configMap or custom
-    type: configMap
-
+    type: pvc
     # -- Where to mount the volume in the main container.
     # Defaults to `/<name_of_the_volume>`,
     # setting to '-' creates the volume but disables the volumeMount.
-    mountPath:  /app/public/conf.yml
+    mountPath:  /app/public
+    size: 1Gi
+    storageClass: 
 
-    # -- Used in conjunction with `existingClaim`. Specifies a sub-path inside the referenced volume instead of its root
+  config:
+    enabled: true
+    type: configMap
+    mountPath: /tmp/conf.yml
     subPath:  conf.yml
     name: dashy-config
     items:
     - key: conf.yml
       path: conf.yml
 
-
-# -- Set the resource requests / limits for the main container.
 resources: {}
-  ## We usually recommend not to specify default resources and to leave this as a conscious
-  ## choice for the user. This also increases chances charts run on environments with little
-  ## resources, such as Minikube. If you do want to specify resources, uncomment the following
-  ## lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
