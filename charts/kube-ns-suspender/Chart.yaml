@@ -1,4 +1,4 @@
 apiVersion: v2
-version: 0.0.1
+version: 0.0.2
 appVersion: v2.1.0
 name: kube-ns-suspender
