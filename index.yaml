@@ -160,6 +160,15 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.1/dashy-0.0.1.tgz
     version: 0.0.1
+  kube-ns-suspender:
+  - apiVersion: v2
+    appVersion: v2.1.0
+    created: "2022-08-19T14:21:18.38851909Z"
+    digest: c3b0160a09ad79185bfe86ca141edcf732312d746aa765c6afbec71ab84088cc
+    name: kube-ns-suspender
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/kube-ns-suspender-0.0.1/kube-ns-suspender-0.0.1.tgz
+    version: 0.0.1
   namespace-management:
   - apiVersion: v2
     created: "2022-08-04T14:54:59.037607881Z"
@@ -303,4 +312,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-08-18T11:08:13.571849642Z"
+generated: "2022-08-19T14:21:18.388680091Z"
