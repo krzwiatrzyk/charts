@@ -3,6 +3,7 @@ namespaces: []
 #   admins: []
 #   viewers: []
 #   enabled: true
+#   suspender: true
 #   resourceQuota:
 #     cpuRequests: 4
 #     cpuLimits: 4
