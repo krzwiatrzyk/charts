@@ -163,6 +163,14 @@ entries:
   kube-ns-suspender:
   - apiVersion: v2
     appVersion: v2.1.0
+    created: "2022-08-19T14:23:05.471688205Z"
+    digest: 8efbc6477d2c35e24659320fb689f367e0967914b5fa7f96d5fa561b238f4c7c
+    name: kube-ns-suspender
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/kube-ns-suspender-0.0.2/kube-ns-suspender-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: v2.1.0
     created: "2022-08-19T14:21:18.38851909Z"
     digest: c3b0160a09ad79185bfe86ca141edcf732312d746aa765c6afbec71ab84088cc
     name: kube-ns-suspender
@@ -312,4 +320,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-08-19T14:21:18.388680091Z"
+generated: "2022-08-19T14:23:05.471707305Z"
