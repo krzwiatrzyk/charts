@@ -1,0 +1,5 @@
+ingressRoute:
+  enabled: false
+  middlewares:
+  # - name: basic-auth
+  #   namespace: traefik

@@ -1,0 +1,21 @@
+{{ if .Values.ingressRoute.enabled }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kube-ns-suspender
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: HostRegexp(`suspender.{suffix:.*}`)
+    kind: Rule
+    middlewares:
+    {{ range .Values.ingressRoute.middlewares -}}
+    - name: {{ .name }}
+      namespace: {{ .namespace }}
+    {{ end -}}
+    services:   
+    - kind: Service 
+      name: kube-ns-suspender-webui
+      port: 8080
+{{ end }}

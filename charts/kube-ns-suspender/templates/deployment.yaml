@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-ns-suspender
+  labels:
+    app: kube-ns-suspender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-ns-suspender
+  template:
+    metadata:
+      labels:
+        app: kube-ns-suspender
+    spec:
+      serviceAccountName: kube-ns-suspender
+      containers:
+      - name: kube-ns-suspender
+        image: ghcr.io/govirtuo/kube-ns-suspender:{{ .Chart.AppVersion }}
+        ports:
+        - name: metrics
+          containerPort: 2112
+        - name: webui
+          containerPort: 8080
+        env:
+        - name: "KUBE_NS_SUSPENDER_UI_EMBEDDED"
+          value: "true"
+        - name: "KUBE_NS_SUSPENDER_CONTROLLER_NAME"
+          value: "kube-ns-suspender"
+         
