@@ -6,12 +6,14 @@ apps:
 - name: traefik
   version: '17.x.x'
   helmURL: 'https://helm.traefik.io/traefik'
-  # -- Group adds a label to application manifest to easily filter applications in ArgoCD UI
+  # -- Optional, group adds a label to application manifest to easily filter applications in ArgoCD UI
   group: networking
   # -- Do not generate application manifest if false
+  # default: true
   enabled: false
   # -- If true values will be downloaded from
   # https://raw.githubusercontent.com/<repoName>/<clusterName>/values/<appName>.yaml
+  # default: true
   values: true
   # -- If true values will be downloaded from
   # https://raw.githubusercontent.com/<repoName>/<clusterName>/secrets/<appName>.yaml

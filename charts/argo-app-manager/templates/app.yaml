@@ -1,5 +1,5 @@
 {{ range .Values.apps }}
-{{ .enabled | default false }}
+{{ if .enabled | default true }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -22,7 +22,7 @@ spec:
     chart: {{ .name }}
     helm:
       valueFiles:
-      {{ if .values }}
+      {{ if .values | default true }}
       - https://raw.githubusercontent.com/{{ $.Values.repoName }}/{{ $.Values.clusterName }}//values/{{ .name }}.yaml
       {{ end }}
       {{ if .secrets }}
@@ -42,4 +42,5 @@ spec:
       - Validate=true
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
+{{ end }}
 {{ end }}
