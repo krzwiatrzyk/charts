@@ -23,10 +23,10 @@ spec:
     helm:
       valueFiles:
       {{ if .values | default true }}
-      - https://raw.githubusercontent.com/{{ $.Values.repoName }}/{{ $.Values.clusterName }}//values/{{ .name }}.yaml
+      - https://raw.githubusercontent.com/{{ $.Values.repoName }}/main/{{ $.Values.clusterName }}/values/{{ .name }}.yaml
       {{ end }}
       {{ if .secrets }}
-      - secrets+age-import-kubernetes://argo-cd/helm-secrets-age-key#age.key?https://raw.githubusercontent.com/{{ $.Values.repoName }}/{{ $.Values.clusterName }}/secrets/{{ .name }}.yaml
+      - secrets+age-import-kubernetes://argo-cd/helm-secrets-age-key#age.key?https://raw.githubusercontent.com/{{ $.Values.repoName }}/main/{{ $.Values.clusterName }}/secrets/{{ .name }}.yaml
       {{ end }}
   destination:
     name: {{ $.Values.clusterName }}
