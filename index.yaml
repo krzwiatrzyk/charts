@@ -25,6 +25,14 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/ToolJet-0.0.1/ToolJet-0.0.1.tgz
     version: 0.0.1
+  argo-app-manager:
+  - apiVersion: v2
+    created: "2022-10-21T14:56:07.324848262Z"
+    digest: d9d797bfa777fa3d26b9a95980ed59ef0120b9d755ff891cb69134ac1b1d386e
+    name: argo-app-manager
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/argo-app-manager-0.0.1/argo-app-manager-0.0.1.tgz
+    version: 0.0.1
   argus:
   - annotations:
       artifacthub.io/prerelease: "true"
@@ -360,4 +368,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-08-19T20:36:58.304591095Z"
+generated: "2022-10-21T14:56:07.324985461Z"
