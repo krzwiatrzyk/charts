@@ -21,6 +21,7 @@ spec:
     targetRevision: '{{ .version }}'
     chart: {{ .name }}
     helm:
+      releaseName: {{ .name }}
       valueFiles:
       {{ if .values | default true }}
       - https://raw.githubusercontent.com/{{ $.Values.repoName }}/main/{{ $.Values.clusterName }}/values/{{ .name }}.yaml
