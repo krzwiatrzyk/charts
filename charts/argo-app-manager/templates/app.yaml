@@ -1,0 +1,45 @@
+{{ range .Values.apps }}
+{{ .enabled | default false }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}-{{ $.Values.clusterName }}
+  namespace: argo-cd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+  labels:
+    group: {{ .group }}
+  {{ if .wave }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .wave }}"
+  {{ end }}
+spec:
+  project: default
+  source:
+    repoURL: '{{ .helmURL }}'
+    targetRevision: '{{ .version }}'
+    chart: {{ .name }}
+    helm:
+      valuesFiles:
+      {{ if .values }}
+      - https://raw.githubusercontent.com/{{ $.Values.repoName }}/{{ $.Values.clusterName }}//values/{{ .name }}.yaml
+      {{ end }}
+      {{ if .secrets }}
+      - secrets+age-import-kubernetes://argo-cd/helm-secrets-age-key#age.key?https://raw.githubusercontent.com/{{ $.Values.repoName }}/{{ $.Values.clusterName }}/secrets/{{ .name }}.yaml
+      {{ end }}
+  destination:
+    name: {{ $.Values.clusterName }}
+    namespace: {{ .name }}
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+{{ end }}

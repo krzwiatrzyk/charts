@@ -1,0 +1,26 @@
+# -- ClusterName is equal to directory name within repository
+clusterName: example
+repoName: exampleUser/exampleRepo
+
+apps:
+- name: traefik
+  version: '17.x.x'
+  helmURL: 'https://helm.traefik.io/traefik'
+  # -- Group adds a label to application manifest to easily filter applications in ArgoCD UI
+  group: networking
+  # -- Do not generate application manifest if false
+  enabled: false
+  # -- If true values will be downloaded from
+  # https://raw.githubusercontent.com/<repoName>/<clusterName>/values/<appName>.yaml
+  values: true
+  # -- If true values will be downloaded from
+  # https://raw.githubusercontent.com/<repoName>/<clusterName>/secrets/<appName>.yaml
+  # Following prefix is added before this field in application spec
+  # secrets+age-import-kubernetes://argo-cd/helm-secrets-age-key#age.key?
+  # thus age key used to encrypt secrets file should exist in 'helm-secrets-age-key' secret
+  # under 'age.key' key
+  secrets: true
+  # -- If set, ArgoCD wave annoation will be set
+  # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/#how-do-i-configure-waves
+  wave: 0
+  
