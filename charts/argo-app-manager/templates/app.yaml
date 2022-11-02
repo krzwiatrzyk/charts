@@ -35,7 +35,7 @@ spec:
   syncPolicy:
     automated:
       prune: false
-      selfHeal: true
+      selfHeal: {{ .selfHeal | default false }}
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
