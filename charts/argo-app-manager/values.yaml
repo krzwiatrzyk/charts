@@ -25,4 +25,6 @@ apps:
   # -- If set, ArgoCD wave annoation will be set
   # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/#how-do-i-configure-waves
   wave: 0
+  # -- Optional, overwrtite namespace, default will result to application name
+  namespace: traefik-namespace
   
