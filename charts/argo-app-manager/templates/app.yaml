@@ -33,9 +33,6 @@ spec:
     name: {{ $.Values.clusterName }}
     namespace: {{ .namespace | default .name }}
   syncPolicy:
-    automated:
-      prune: false
-      selfHeal: {{ .selfHeal | default false }}
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
@@ -43,5 +40,10 @@ spec:
       - Validate=true
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
+    {{ if .autoSync | default false }}
+    automated:
+      prune: false
+      selfHeal: {{ .selfHeal | default false }}
+    {{ end }}
 {{ end }}
 {{ end }}

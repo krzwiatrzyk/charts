@@ -27,4 +27,10 @@ apps:
   wave: 0
   # -- Optional, overwrtite namespace, default will result to application name
   namespace: traefik-namespace
+
+  # -- Optional
+  autoSync: false
+
+  # -- Optional, requires 'autosync: true'
+  selfHeal: false
   
