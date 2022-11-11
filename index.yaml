@@ -27,6 +27,13 @@ entries:
     version: 0.0.1
   argo-app-manager:
   - apiVersion: v2
+    created: "2022-11-11T12:39:44.643944573Z"
+    digest: 69755eab85c59aa195c754d85a603d64dce2a95cfa9b9ea053c87e932f7f3027
+    name: argo-app-manager
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/argo-app-manager-0.0.8/argo-app-manager-0.0.8.tgz
+    version: 0.0.8
+  - apiVersion: v2
     created: "2022-11-02T20:18:27.245182759Z"
     digest: e6bc46fd7f270d3a675a6a5b378dcbcdaec4ad4b636e726f13beaf0f908065f6
     name: argo-app-manager
@@ -410,4 +417,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-11-02T20:18:27.245378535Z"
+generated: "2022-11-11T12:39:44.643989773Z"
