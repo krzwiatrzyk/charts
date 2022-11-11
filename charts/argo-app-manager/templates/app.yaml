@@ -1,5 +1,5 @@
 {{ range .Values.apps }}
-{{ if .enabled | default true }}
+{{ if or (not (hasKey . "enabled")) .enabled }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application

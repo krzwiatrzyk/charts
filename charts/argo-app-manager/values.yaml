@@ -10,7 +10,7 @@ apps:
   group: networking
   # -- Do not generate application manifest if false
   # default: true
-  enabled: false
+  # enabled: true
   # -- If true values will be downloaded from
   # https://raw.githubusercontent.com/<repoName>/<clusterName>/values/<appName>.yaml
   # default: true
