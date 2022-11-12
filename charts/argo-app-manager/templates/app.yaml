@@ -10,10 +10,13 @@ metadata:
     - resources-finalizer.argocd.argoproj.io/foreground
   labels:
     group: {{ .group }}
-  {{ if .wave }}
   annotations:
+    {{ if .hardRefresh }}
+    argocd.argoproj.io/refresh: hard
+    {{ end }}
+    {{ if .wave }}
     argocd.argoproj.io/sync-wave: "{{ .wave }}"
-  {{ end }}
+    {{ end }}
 spec:
   project: default
   source:

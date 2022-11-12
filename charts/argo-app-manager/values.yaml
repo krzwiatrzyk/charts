@@ -34,3 +34,5 @@ apps:
   # -- Optional, requires 'autosync: true'
   selfHeal: false
   
+  # -- Optional, add annotation to hard refresh this app
+  hardRefresh: false
