@@ -343,6 +343,26 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/pav-0.0.1/pav-0.0.1.tgz
     version: 0.0.1
+  pipecd:
+  - apiVersion: v2
+    appVersion: v0.39.0
+    created: "2022-12-13T21:41:57.315989141Z"
+    dependencies:
+    - condition: monitoring.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: v14.6.0
+    - condition: monitoring.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.16.2
+    description: A Helm chart for Control Plane of PipeCD
+    digest: 82c62b653b0d002c0962f08cb218d6b4a3d141b9de87d5922bd254d6cd189f88
+    name: pipecd
+    type: application
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/pipecd-v0.39.0/pipecd-v0.39.0.tgz
+    version: v0.39.0
   postgresql-backup-to-minio:
   - apiVersion: v2
     created: "2022-08-05T14:09:31.007987656Z"
@@ -438,4 +458,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-11-12T08:35:13.910698939Z"
+generated: "2022-12-13T21:41:57.316184547Z"
