@@ -39,6 +39,11 @@ jobs:
       - name: Add cockroach repo
         run: helm repo add cockroachdb https://charts.cockroachdb.com/
 
+      - name: Add repos
+        run: |
+          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add grafana https://grafana.github.io/helm-charts
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.3.0
         env:
