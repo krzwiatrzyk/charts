@@ -107,6 +107,29 @@ entries:
   - annotations:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
+    appVersion: 0.11.0
+    created: "2022-12-16T18:34:37.324675871Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    digest: 96b05166c970dd0683bbd1717d75f28e83cf16ce04f7df5cd4aeb17cfc9a95eb
+    keywords:
+    - argus
+    kubeVersion: '>=1.20.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzwiatrzyk
+    name: argus
+    sources:
+    - https://github.com/release-argus/Argus
+    - https://release-argus.io
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/argus-0.0.3/argus-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
     appVersion: 0.4.1
     created: "2022-06-14T20:32:56.452587626Z"
     dependencies:
@@ -458,4 +481,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-12-13T21:41:57.316184547Z"
+generated: "2022-12-16T18:34:37.324740375Z"
