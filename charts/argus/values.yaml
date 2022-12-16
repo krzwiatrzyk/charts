@@ -17,6 +17,11 @@ configmap:
         {{- .Values.config | nindent 2 }}
 
 persistence:
+  data:
+    enabled: true
+    type: pvc
+    mountPath: /app/data
+    size: 1Gi
   config:
     enabled: true
     type: configMap
