@@ -1,20 +1,20 @@
-config:
-  # service:
-  #   dani-garcia/vaultwarden:
-  #     type: github
-  #     url: dani-garcia/vaultwarden
-  #     web_url: https://github.com/dani-garcia/vaultwarden/releases/{{ version }}
-  #     icon: https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/src/static/images/vaultwarden-icon.png
-  #     deployed_version:
-  #       url: https://vaultwarden.example.io/api/version
-  #       regex: ([0-9.]+)
+config: |
+  service:
+    dani-garcia/vaultwarden:
+      type: github
+      url: dani-garcia/vaultwarden
+      web_url: https://github.com/dani-garcia/vaultwarden/releases/{{ version }}
+      icon: https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/src/static/images/vaultwarden-icon.png
+      deployed_version:
+        url: https://vaultwarden.example.io/api/version
+        regex: ([0-9.]+)
 
 configmap:
   config:
     enabled: true
     data: 
-      config.yml: | 
-        {{- .Values.config | toYaml | nindent 2 }}
+      config.yml: |
+        {{- .Values.config | nindent 2 }}
 
 podSecurityContext:
   runAsUser: 65534
@@ -61,4 +61,4 @@ probes:
 command:
 - "/bin/sh"
 - "-c"
-- "cp /config/config.yml /etc/argus/config.yml && /bin/argus -config.file=/etc/argus/config.yml"
+- "argus -config.file=/config/config.yml"
