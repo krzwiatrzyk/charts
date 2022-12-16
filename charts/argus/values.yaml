@@ -1,13 +1,13 @@
 config: |
   service:
-    dani-garcia/vaultwarden:
-      type: github
-      url: dani-garcia/vaultwarden
-      web_url: https://github.com/dani-garcia/vaultwarden/releases/{{ version }}
-      icon: https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/src/static/images/vaultwarden-icon.png
-      deployed_version:
-        url: https://vaultwarden.example.io/api/version
-        regex: ([0-9.]+)
+    release-argus/argus:
+      latest_version:
+        type: github
+        url: release-argus/argus
+      dashboard:
+        icon: https://github.com/release-argus/Argus/raw/master/web/ui/static/favicon.svg
+        icon_link-to: https://release-argus.io
+        web_url: https://github.com/release-argus/Argus/blob/master/CHANGELOG.md
 
 configmap:
   config:
@@ -15,13 +15,6 @@ configmap:
     data: 
       config.yml: |
         {{- .Values.config | nindent 2 }}
-
-podSecurityContext:
-  runAsUser: 65534
-  runAsGroup: 65534
-  fsGroup: 65534
-securityContext:
-  readOnlyRootFilesystem: false
 
 persistence:
   config:
