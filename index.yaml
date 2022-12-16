@@ -104,6 +104,27 @@ entries:
     - https://github.com/krzwiatrzyk/charts/releases/download/argo-app-manager-0.0.1/argo-app-manager-0.0.1.tgz
     version: 0.0.1
   argus:
+  - apiVersion: v2
+    appVersion: 0.11.0
+    created: "2022-12-16T19:08:12.403108689Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    digest: 810b5acc79d1dbf734116e9ed2b6cd37f307a647860bdd5a8bdb9960e4d199f6
+    keywords:
+    - argus
+    kubeVersion: '>=1.20.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzwiatrzyk
+    name: argus
+    sources:
+    - https://github.com/release-argus/Argus
+    - https://release-argus.io
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/argus-1.0.0/argus-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
@@ -527,4 +548,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-12-16T18:58:51.397426225Z"
+generated: "2022-12-16T19:08:12.40318229Z"
