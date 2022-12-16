@@ -37,9 +37,8 @@ image:
 service:
   main:
     ports:
-      main:
-        port: 80
-        targetPort: 8080
+      http:
+        port: 8080
   
 resources:
   limits:
