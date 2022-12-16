@@ -28,11 +28,11 @@ persistence:
     enabled: true
     type: configMap
     mountPath: /config
-    objectName: argus-config
+    name: argus-config
 
 image:
   repository: releaseargus/argus
-  tag: 0.4.1
+  tag: 0.11.0
 
 service:
   main:
@@ -54,41 +54,12 @@ probes:
     enabled: false
 
   readiness:
-    enabled: true
-    custom: false
-    type: TCP
-    spec:
-      initialDelaySeconds: 10
-      periodSeconds: 5
-      timeoutSeconds: 5
-      failureThreshold: 6
-
-ingress:
-  main:
     enabled: false
-    primary: true
-    autoLink: true
-    enableFixedMiddlewares: false
-    annotations:
-      traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    hosts:
-      - host: argus.127.0.0.1.nip.io
-        paths:
-          - path: /
-            pathType: Prefix
+ 
+  startup:
+    enabled: false
 
 command:
 - "/bin/sh"
 - "-c"
 - "cp /config/config.yml /etc/argus/config.yml && /bin/argus -config.file=/etc/argus/config.yml"
-
-extensions:
-  pav: false
-
-# pav:
-#   persistence:
-#     config:
-#       objectName: argus-pav-config
-#   apps:
-#     vaultwarden: 1.0.0
-

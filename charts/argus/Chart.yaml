@@ -1,7 +1,7 @@
 apiVersion: v2
 name: argus
-version: 0.0.2
-appVersion: 0.4.1
+version: 0.0.3
+appVersion: 0.11.0
 sources:
 - https://github.com/release-argus/Argus
 - https://release-argus.io
@@ -15,9 +15,5 @@ annotations:
 kubeVersion: ">=1.20.0"
 dependencies:
 - name: common
-  version: "~9.3.0"
-  repository: https://library-charts.truecharts.org
-- name: pav
-  repository: https://krzwiatrzyk.github.io/charts/
-  version: '0.0.x'
-  condition: extensions.pav
+  version: "4.5.2"
+  repository: https://library-charts.k8s-at-home.com
