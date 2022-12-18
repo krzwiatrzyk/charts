@@ -1,0 +1,49 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: nocodb/nocodb
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+  tag: "0.100.2"
+
+# -- Specifies whether a service account token should be automatically mounted.
+automountServiceAccountToken: false
+
+probes:
+  liveness:
+    enabled: true
+
+  readiness:
+    enabled: true
+
+  startup:
+    enabled: true
+
+service:
+  main:
+    ports:
+      http:
+        port: 8080
+
+persistence:
+  data:
+    enabled: true
+    accessMode: ReadWriteOnce
+    type: pvc
+    mountPath:  /usr/app/data
+    size: 1Gi
+    storageClass: 
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi

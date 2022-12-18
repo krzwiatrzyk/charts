@@ -1,0 +1,17 @@
+name: nocodb
+apiVersion: v2
+appVersion: 0.100.2
+version: 0.0.1
+maintainers:
+- name: Krzysztof Wiatrzyk
+  email: krzwiatrzyk@protonmail.com
+sources:
+- https://github.com/nocodb/nocodb
+keywords:
+  - "nocodb"
+kubeVersion: ">1.22.0"
+icon: https://github.com/nocodb/nocodb/raw/develop/packages/nc-gui/assets/img/icons/512x512.png
+dependencies:
+- name: common
+  version: "~4.3.0"
+  repository: https://library-charts.k8s-at-home.com
