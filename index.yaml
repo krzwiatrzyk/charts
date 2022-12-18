@@ -435,6 +435,28 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/namespace-management-0.0.1/namespace-management-0.0.1.tgz
     version: 0.0.1
+  nocodb:
+  - apiVersion: v2
+    appVersion: 0.100.2
+    created: "2022-12-18T11:09:49.185728182Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: 90079237249df5b2f1d0a6417cd8e5c263d27c3c1c3f9f6f830102f08a93164f
+    icon: https://github.com/nocodb/nocodb/raw/develop/packages/nc-gui/assets/img/icons/512x512.png
+    keywords:
+    - nocodb
+    kubeVersion: '>1.22.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: nocodb
+    sources:
+    - https://github.com/nocodb/nocodb
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/nocodb-0.0.1/nocodb-0.0.1.tgz
+    version: 0.0.1
   ohmyform:
   - annotations:
       artifacthub.io/changes: ""
@@ -590,4 +612,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-12-16T20:02:58.730965614Z"
+generated: "2022-12-18T11:09:49.185901484Z"
