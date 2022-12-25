@@ -24,7 +24,7 @@ persistence:
     enabled: true
     type: configMap
     mountPath: /app/data
-    objectName: pav-config
+    name: pav-config
 
 resources:  
   limits:

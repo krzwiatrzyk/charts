@@ -1,11 +1,8 @@
 apiVersion: v2
 name: pav
-version: 0.0.1
+version: 0.0.2
 appVersion: 0.0.2
-maintainers:
-- name: Krzysztof Wiatrzyk
-  email: krzwiatrzyk@protonmail.com
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: '9.3.x'
+    repository: https://library-charts.k8s-at-home.com
+    version: 'x.x.x'

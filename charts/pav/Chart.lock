@@ -1,6 +1,6 @@
 dependencies:
 - name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.29
-digest: sha256:67dc912df21d1ff7833ba341b53b9d457b5b6966a96b481397e0bda775918f3b
-generated: "2022-06-14T22:13:16.688890186+02:00"
+  repository: https://library-charts.k8s-at-home.com
+  version: 4.5.2
+digest: sha256:b9806df242e67a70f535812c30bc1db623e4b0e9135c8604b2bdf8f1955f608f
+generated: "2022-12-24T16:12:41.506016889+01:00"
