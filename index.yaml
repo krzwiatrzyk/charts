@@ -484,6 +484,18 @@ entries:
   pav:
   - apiVersion: v2
     appVersion: 0.0.2
+    created: "2022-12-25T13:45:45.798842541Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: x.x.x
+    digest: 8a196404198cf222ae82e89be8487c301096895b6496add69140981b101e76f9
+    name: pav
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/pav-0.0.2/pav-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.2
     created: "2022-06-14T20:14:26.16520709Z"
     dependencies:
     - name: common
@@ -612,4 +624,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-12-18T11:09:49.185901484Z"
+generated: "2022-12-25T13:45:45.799186141Z"
