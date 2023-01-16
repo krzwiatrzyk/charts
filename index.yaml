@@ -594,6 +594,30 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/tooljet-0.0.3/tooljet-0.0.3.tgz
     version: 0.0.3
+  traggo:
+  - apiVersion: v2
+    appVersion: 0.2.3
+    created: "2023-01-16T16:26:19.086547279Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: bf2a60556d87e77f4af84a8733924485ce3c6e4ba0502868b38381253e90df07
+    icon: https://traggo.net/images/favicon.png
+    keywords:
+    - traggo
+    - time tracking
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: traggo
+    sources:
+    - https://github.com/traggo/server
+    - https://traggo.net
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/traggo-1.0.0/traggo-1.0.0.tgz
+    version: 1.0.0
   user-management:
   - apiVersion: v2
     created: "2022-08-04T14:54:59.189969535Z"
@@ -624,4 +648,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2022-12-25T13:45:45.799186141Z"
+generated: "2023-01-16T16:26:19.092670991Z"
