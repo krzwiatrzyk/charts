@@ -1,0 +1,19 @@
+name: traggo
+apiVersion: v2
+appVersion: 0.2.3
+version: 1.0.0
+maintainers:
+- name: Krzysztof Wiatrzyk
+  email: krzwiatrzyk@protonmail.com
+sources:
+- https://github.com/traggo/server
+- https://traggo.net
+keywords:
+  - "traggo"
+  - "time tracking"
+kubeVersion: ">1.16.0"
+icon: https://traggo.net/images/favicon.png
+dependencies:
+- name: common
+  version: "~4.3.0"
+  repository: https://library-charts.k8s-at-home.com
