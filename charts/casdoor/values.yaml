@@ -1,0 +1,37 @@
+image:
+  # -- image repository
+  repository: casbin/casdoor
+  # -- image pull policy
+  pullPolicy: Always
+
+automountServiceAccountToken: false
+
+service:
+  main:
+    ports:
+      http:
+        port: 8000
+
+# persistence:
+#   config:
+#     enabled: true
+#     accessMode: ReadWriteOnce
+#     type: pvc
+#     mountPath: /conf
+#     size: 100Mi
+#     storageClass:
+  
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+env: 
+  RUNNING_IN_DOCKER: "true"
+  driverName: postgres
+  dataSourceName: "user=postgres password=postgres host=localhost port=5432 sslmode=disable dbname=casdoor"
+  dbName: "" # leave this empty
+
