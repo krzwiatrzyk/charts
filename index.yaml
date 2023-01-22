@@ -286,6 +286,29 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/argus-0.0.1/argus-0.0.1.tgz
     version: 0.0.1
+  casdoor:
+  - apiVersion: v2
+    appVersion: v1.224.0
+    created: "2023-01-22T22:14:20.260460204Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: 9805c824f9a3880bd0bc3dc5092a17ee1999e801922079c5c4cc4cf97f163648
+    icon: https://casdoor.org/img/casbin.svg
+    keywords:
+    - casdoor
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: casdoor
+    sources:
+    - https://hub.docker.com/r/casbin/casdoor/tags
+    - https://github.com/casdoor/casdoor
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/casdoor-1.0.0/casdoor-1.0.0.tgz
+    version: 1.0.0
   dashy:
   - annotations:
       artifacthub.io/changes: "- kind: added\n  description: configuration storage
@@ -648,4 +671,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2023-01-16T16:26:19.092670991Z"
+generated: "2023-01-22T22:14:20.260524104Z"
