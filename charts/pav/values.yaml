@@ -4,12 +4,12 @@ apps:
 
 image:
   repository: witcherek7/pav
-  tag: 0.0.2
+  tag: 0.0.3
 
 service:
   main:
     ports:
-      main:
+      http:
         port: 5000
 
 configmap:
