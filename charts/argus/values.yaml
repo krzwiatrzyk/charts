@@ -60,4 +60,4 @@ probes:
 command:
 - "/bin/sh"
 - "-c"
-- "argus -config.file=/config/config.yml"
+- "cp /config/config.yml /config.yml && argus -config.file=/config.yml"
