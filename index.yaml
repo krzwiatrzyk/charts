@@ -451,6 +451,18 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.1/dashy-0.0.1.tgz
     version: 0.0.1
+  gfun:
+  - apiVersion: v2
+    created: "2023-04-11T17:08:15.479102172Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: x.x.x
+    digest: fd78b835e342795db7518a0b50276cd0c9ebed4498910f0cceb2dc88f18ed154
+    name: gfun
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/gfun-0.0.3/gfun-0.0.3.tgz
+    version: 0.0.3
   kube-ns-suspender:
   - apiVersion: v2
     appVersion: v2.1.0
@@ -716,4 +728,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2023-04-10T09:04:53.534383225Z"
+generated: "2023-04-11T17:08:15.479497377Z"
