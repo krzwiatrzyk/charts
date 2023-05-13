@@ -11,10 +11,15 @@ env:
   GFUN_TELEMETRY_ENABLED: "false"
   GFUN_TELEMETRY_COLLECTOR_ENDPOINT: "none"
 
-  GFUN_CRON_ENABLED: false
+  GFUN_CRON_ENABLED: "false"
 
   # this must be without GFUN_ prefix
-  FAKTORY_URL: tcp://faktory.faktory.svc:7419
+  FAKTORY_URL: tcp://:password@faktory.faktory.svc:7419
+
+  GFUN_MEMPHIS_ENABLED: "false"
+  GUFN_MEMPHIS_HOST: ""
+  GFUN_MEMPHIS_USERNAME: ""
+  GFUN_MEMPHIS_PASSWORD: ""
 
 service:
   main:
