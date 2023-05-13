@@ -11,6 +11,8 @@ env:
   GFUN_TELEMETRY_ENABLED: "false"
   GFUN_TELEMETRY_COLLECTOR_ENDPOINT: "none"
 
+  GFUN_CRON_ENABLED: false
+
   # this must be without GFUN_ prefix
   FAKTORY_URL: tcp://faktory.faktory.svc:7419
 
