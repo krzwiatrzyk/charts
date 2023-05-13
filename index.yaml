@@ -453,6 +453,17 @@ entries:
     version: 0.0.1
   gfun:
   - apiVersion: v2
+    created: "2023-05-13T08:57:59.814165182Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: x.x.x
+    digest: 8f321a65ca46c700c7f4bcc5c16203d8882f3d5ae81daefde8dbd7158b524bcb
+    name: gfun
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/gfun-0.0.4/gfun-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
     created: "2023-04-11T17:08:15.479102172Z"
     dependencies:
     - name: common
@@ -728,4 +739,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2023-04-11T17:08:15.479497377Z"
+generated: "2023-05-13T08:57:59.814424688Z"
