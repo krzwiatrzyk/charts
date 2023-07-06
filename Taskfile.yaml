@@ -9,3 +9,8 @@ tasks:
       - helm lint {{ .CHARTS }}
     dir: charts
     silent: true
+
+  commit:
+  - git add .
+  - git commit -m "update"
+  - git push origin main

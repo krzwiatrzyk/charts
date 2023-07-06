@@ -53,6 +53,7 @@ probes:
       failureThreshold: 6
 
 postgresql:
+  enabled: true
   resources:
     requests:
       memory: 1Gi
