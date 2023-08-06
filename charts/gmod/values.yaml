@@ -1,0 +1,36 @@
+config:
+  server:
+    port: 8080
+    address: 0.0.0.0
+
+image:
+  repository: c8n.io/krzwiatrzyk/gmod
+  tag: 0.0.1
+
+service:
+  main:
+    ports:
+      http:
+        port: 8080
+
+configmap:
+  config:
+    enabled: true
+    data: 
+      config.yaml: | 
+        {{- .Values.config | toYaml | nindent 2 }}
+
+persistence:
+  config:
+    enabled: true
+    type: configMap
+    mountPath: /gmod
+    name: gmod-config
+
+resources:  
+  limits:
+    cpu: 50m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi

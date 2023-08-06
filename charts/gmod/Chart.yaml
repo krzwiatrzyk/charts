@@ -1,0 +1,7 @@
+apiVersion: v2
+name: gfun
+version: 0.0.5
+dependencies:
+  - name: common
+    repository: https://library-charts.k8s-at-home.com
+    version: 'x.x.x'
