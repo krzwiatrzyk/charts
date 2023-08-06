@@ -496,6 +496,18 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/gfun-0.0.3/gfun-0.0.3.tgz
     version: 0.0.3
+  gmod:
+  - apiVersion: v2
+    created: "2023-08-06T14:26:58.824899223Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: x.x.x
+    digest: c8bc2c61139b68133b46495d2bfcda01ec9e9ed288f5ea158649004d1b57c958
+    name: gmod
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/gmod-0.0.2/gmod-0.0.2.tgz
+    version: 0.0.2
   kube-ns-suspender:
   - apiVersion: v2
     appVersion: v2.1.0
@@ -791,4 +803,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2023-07-06T16:26:07.301361211Z"
+generated: "2023-08-06T14:26:58.824974224Z"
