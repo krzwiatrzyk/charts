@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        resources: {{ .Values.resources | toYaml | nindent 8}}
+        ports:
+        {{ range $portName, $portConfig := .Values.ports -}}
+        - port: {{ $portConfig.port }}
+          containerPort: {{ $portConfig.port }}
+          name: {{ $portName }}
+        {{ end }}
+        volumeMounts:
+        - mountPath: /gmod
+          name: config
+
+      volumes:
+      - configMap:
+         name: config
