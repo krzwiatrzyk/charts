@@ -20,3 +20,5 @@ resources:
     memory: 64Mi
 
 imagePullSecrets: []
+
+args: []

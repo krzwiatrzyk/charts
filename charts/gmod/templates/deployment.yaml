@@ -18,6 +18,9 @@ spec:
         imagePullSecrets: {{ .Values.imagePullSecrets | toYaml | nindent 10 }}
         {{ end }}
         resources: {{ .Values.resources | toYaml | nindent 10 }}
+        {{ if .Values.args }}
+        args: {{ .Values.args | toYaml | nindent 10 }}
+        {{ end }}
         ports:
         {{ range $portName, $portConfig := .Values.ports -}}
         - port: {{ $portConfig.port }}
