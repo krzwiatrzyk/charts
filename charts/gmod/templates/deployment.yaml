@@ -14,7 +14,10 @@ spec:
       containers:
       - name: {{ .Release.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        resources: {{ .Values.resources | toYaml | nindent 8}}
+        {{ if .Values.imagePullSecrets }}
+        imagePullSecrets: {{ .Values.imagePullSecrets | toYaml | nindent 10 }}
+        {{ end }}
+        resources: {{ .Values.resources | toYaml | nindent 10 }}
         ports:
         {{ range $portName, $portConfig := .Values.ports -}}
         - port: {{ $portConfig.port }}
