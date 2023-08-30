@@ -23,8 +23,7 @@ spec:
         {{ end }}
         ports:
         {{ range $portName, $portConfig := .Values.ports -}}
-        - port: {{ $portConfig.port }}
-          containerPort: {{ $portConfig.port }}
+        - containerPort: {{ $portConfig.port }}
           name: {{ $portName }}
         {{ end }}
         volumeMounts:
