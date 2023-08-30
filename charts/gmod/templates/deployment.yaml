@@ -29,5 +29,8 @@ spec:
           name: config
 
       volumes:
-      - configMap:
-          name: config
+      - name: config
+        configMap:
+          name: {{ .Release.Name }}-config
+       
+
