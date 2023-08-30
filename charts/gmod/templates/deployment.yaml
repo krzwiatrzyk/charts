@@ -11,12 +11,12 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      {{ if .Values.imagePullSecrets }}
+      imagePullSecrets: {{ .Values.imagePullSecrets | toYaml | nindent 8 }}
+      {{ end }}
       containers:
       - name: {{ .Release.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        {{ if .Values.imagePullSecrets }}
-        imagePullSecrets: {{ .Values.imagePullSecrets | toYaml | nindent 10 }}
-        {{ end }}
         resources: {{ .Values.resources | toYaml | nindent 10 }}
         {{ if .Values.args }}
         args: {{ .Values.args | toYaml | nindent 10 }}
