@@ -27,4 +27,4 @@ spec:
 
       volumes:
       - configMap:
-         name: config
+          name: config
