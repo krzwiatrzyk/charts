@@ -5,6 +5,8 @@ on:
   push:
     branches:
     -  main
+    paths:
+    - charts/**
 
 jobs:
   generate-matrix:
@@ -12,6 +14,7 @@ jobs:
       list: ${{ steps.list.outputs.list }}
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - id: list
       run: |
         ls -m charts | tr -d "," | tr "\n" " " | jq -R -s -c 'split(" ")[:-1]' > res.json
