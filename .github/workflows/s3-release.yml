@@ -28,6 +28,6 @@ jobs:
     - generate-matrix
     strategy:
       matrix:
-        chart: ${{ needs.generate-matrix.outputs.list }}
+        chart: ${{ fromJson(needs.generate-matrix.outputs.list) }}
     steps:
     - run: echo ${{ matrix.chart }}
