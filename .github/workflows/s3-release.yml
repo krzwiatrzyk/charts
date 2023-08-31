@@ -122,4 +122,4 @@ jobs:
         echo name=$(ls | grep .tgz) >> $GITHUB_OUTPUT
     
     - name: Push chart
-      run: helm s3 push ./ ${{ steps.file.outputs.name }} mys3 --ignore-if-exists
+      run: helm s3 push ./${{ steps.file.outputs.name }} mys3 --ignore-if-exists
