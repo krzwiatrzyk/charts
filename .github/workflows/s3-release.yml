@@ -29,5 +29,16 @@ jobs:
     strategy:
       matrix:
         chart: ${{ fromJson(needs.generate-matrix.outputs.list) }}
+    defaults:
+      run:
+        working-directory: charts/${{ matrix.chart }}
     steps:
-    - run: echo ${{ matrix.chart }}
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::506534868111:role/oidc/helm-s3
+        role-session-name: helm-s3-${{ github.run_id }}
+        aws-region: eu-central-1
+
+    - uses: actions/checkout@v3
+    - run: ls
