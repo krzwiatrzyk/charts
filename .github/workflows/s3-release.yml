@@ -27,7 +27,7 @@ jobs:
         cat res.json >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
 
-  test:
+  template:
     runs-on: ubuntu-latest
     needs: 
     - generate-matrix
@@ -46,7 +46,7 @@ jobs:
     - name: Helm template
       run: helm template . 
 
-  package-charts:
+  package:
     runs-on: ubuntu-latest
     needs: 
     - generate-matrix
@@ -80,14 +80,14 @@ jobs:
         retention-days: 1
 
 
-  release-charts:
+  release:
     env:
       HELM_S3_MODE: 3
     runs-on: ubuntu-latest
     needs: 
     - generate-matrix
-    - package-charts
-    - test
+    - package
+    - template
     strategy:
       matrix:
         chart: ${{ fromJson(needs.generate-matrix.outputs.list) }}
@@ -95,6 +95,7 @@ jobs:
       run:
         working-directory: charts/${{ matrix.chart }}
     steps:
+    - uses: actions/checkout@v3
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
