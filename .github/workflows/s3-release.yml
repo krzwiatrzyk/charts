@@ -76,8 +76,9 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.chart }}
-        path: ${{ steps.file.outputs.name }}
+        path: charts/${{ matrix.chart }}/${{ steps.file.outputs.name }}
         retention-days: 1
+
 
   release-charts:
     env:
