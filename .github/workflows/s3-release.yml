@@ -85,6 +85,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: 
     - generate-matrix
+    - package-charts
+    - test
     strategy:
       matrix:
         chart: ${{ fromJson(needs.generate-matrix.outputs.list) }}
