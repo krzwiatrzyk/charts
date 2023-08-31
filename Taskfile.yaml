@@ -14,3 +14,15 @@ tasks:
   - git add .
   - git commit -m "update"
   - git push origin main
+
+  helm-s3:install:
+    cmds:
+    - helm plugin install https://github.com/hypnoglow/helm-s3.git
+    status:
+    - helm plugin list | grep helm-s3
+
+  helm-s3:repo:init: 
+  - helm s3 init s3://windkube-charts/charts
+  
+  helm-s3:repo:add:
+  - helm repo add mys3 s3://windkube-charts/charts

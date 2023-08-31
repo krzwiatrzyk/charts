@@ -1,0 +1,30 @@
+name: Release charts to S3
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    -  main
+
+jobs:
+  generate-matrix:
+    outputs:
+      list: ${{ steps.list.outputs.list }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: list
+      run: |
+        ls -m charts | tr -d "," | tr "\n" " " | jq -R -s -c 'split(" ")[:-1]' > res.json
+        echo "list<EOF" >> $GITHUB_OUTPUT
+        cat res.json >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+
+  release-charts:
+    runs-on: ubuntu-latest
+    needs: 
+    - generate-matrix
+    strategy:
+      matrix:
+        chart: ${{ needs.generate-matrix.outputs.list }}
+    steps:
+    - run: echo ${{ matrix.chart }}
