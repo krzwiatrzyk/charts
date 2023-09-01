@@ -2,6 +2,12 @@ config:
   server:
     port: 8080
     address: 0.0.0.0
+  featureFlags:
+    enabled: false
+    provider: "growthbook"
+    growthbook:
+      host:
+      key: 
 
 image:
   repository: c8n.io/krzwiatrzyk/gmod
