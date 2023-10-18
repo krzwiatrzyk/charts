@@ -498,6 +498,13 @@ entries:
     version: 0.0.3
   gmod:
   - apiVersion: v2
+    created: "2023-10-18T20:13:12.112408327Z"
+    digest: 795699caf0b670ed9bdc934f8d706836afba8845f9040c06cb3925e166c0e6a8
+    name: gmod
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/gmod-0.0.12/gmod-0.0.12.tgz
+    version: 0.0.12
+  - apiVersion: v2
     created: "2023-10-18T19:54:06.338062463Z"
     digest: 84ef51e5233e7a56d1481f04f172929fe16c6d878644b46285a72327718d88d5
     name: gmod
@@ -859,4 +866,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2023-10-18T19:54:06.338139864Z"
+generated: "2023-10-18T20:13:12.112835635Z"
