@@ -454,6 +454,22 @@ entries:
   generic:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-10-20T16:07:43.523503712Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: f76fb856075f2f1c3daddfa4a43949e34e392f19ac5011a925fc751008b6ba4c
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: generic
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/generic-1.0.2/generic-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-10-20T15:53:37.995131538Z"
     dependencies:
     - name: common
@@ -899,4 +915,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2023-10-20T15:53:37.995224744Z"
+generated: "2023-10-20T16:07:43.523582112Z"
