@@ -451,6 +451,23 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/dashy-0.0.1/dashy-0.0.1.tgz
     version: 0.0.1
+  generic:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-10-20T15:48:24.119280917Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: ~4.3.0
+    digest: 8b469294d92bb45eec7ba358cbbbdfbab2498cbed6da985b54554daf52cbb6c2
+    kubeVersion: '>1.16.0'
+    maintainers:
+    - email: krzwiatrzyk@protonmail.com
+      name: Krzysztof Wiatrzyk
+    name: generic
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/generic-1.0.0/generic-1.0.0.tgz
+    version: 1.0.0
   gfun:
   - apiVersion: v2
     created: "2023-07-06T16:26:07.151169719Z"
@@ -866,4 +883,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2023-10-18T20:13:12.112835635Z"
+generated: "2023-10-20T15:48:24.119463918Z"
