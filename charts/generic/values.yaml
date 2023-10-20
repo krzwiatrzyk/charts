@@ -1,0 +1,147 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/lissy93/dashy
+  # -- image pull policy
+  pullPolicy: Always
+
+# -- Specifies whether a service account token should be automatically mounted.
+automountServiceAccountToken: false
+
+command: ["/bin/sh"]
+args:
+- -c
+- |
+  [[ -f /app/public/conf.yml ]] || cp /tmp/conf.yml /app/public/conf.yml && \
+  yarn build-and-start 
+
+# -- Configure configMaps for the chart here.
+# Additional configMaps can be added by adding a dictionary key similar to the 'config' object.
+# @default -- See below
+configmap:
+  config:
+    enabled: true
+    data:
+      conf.yml: |
+        {{- .Files.Get "conf.yml" | nindent 4 }}
+
+# -- Probe configuration
+# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# @default -- See below
+probes:
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    # -- Enable the liveness probe
+    enabled: true
+    # -- Set this to `true` if you wish to specify your own livenessProbe
+    custom: false
+    # -- The spec field contains the values for the default livenessProbe.
+    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+    # @default -- See below
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 1
+      failureThreshold: 3
+
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+        - yarn
+        - health-check
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 2
+      failureThreshold: 3
+
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    # -- Enable the startup probe
+    enabled: true
+    # -- Set this to `true` if you wish to specify your own startupProbe
+    custom: false
+    # -- The spec field contains the values for the default startupProbe.
+    # If you selected `custom: true`, this field holds the definition of the startupProbe.
+    # @default -- See below
+    spec:
+      initialDelaySeconds: 10
+      timeoutSeconds: 1
+      ## This means it has a maximum of 5*30=150 seconds to start up before it fails
+      periodSeconds: 5
+      failureThreshold: 30
+
+# -- Configure the services for the chart here.
+# Additional services can be added by adding a dictionary key similar to the 'main' service.
+# @default -- See below
+service:
+  main:
+    # -- Configure the Service port information here.
+    # Additional ports can be added by adding a dictionary key similar to the 'http' service.
+    # @default -- See below
+    ports:
+      http:
+        # -- The port number
+        port: 80
+
+# -- Configure persistence for the chart here.
+# Additional items can be added by adding a dictionary key similar to the 'config' key.
+# [[ref]](http://docs.k8s-at-home.com/our-helm-charts/common-library-storage)
+# @default -- See below
+persistence:
+  # -- Default persistence for configuration files.
+  # @default -- See below
+  data:
+    # -- Enables or disables the persistence item
+    enabled: true
+    accessMode: ReadWriteOnce
+    # -- Sets the persistence type
+    # Valid options are pvc, emptyDir, hostPath, secret, configMap or custom
+    type: pvc
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath:  /app/public
+    size: 1Gi
+    storageClass: 
+
+  config:
+    enabled: true
+    type: configMap
+    mountPath: /tmp/conf.yml
+    subPath:  conf.yml
+    name: dashy-config
+    items:
+    - key: conf.yml
+      path: conf.yml
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+### Custom values, not from Common LibraryChart
+ingressRoute:
+  main:
+    enabled: false
+    hosts:
+    - host: chart-example.local
+      paths:
+      - path: /
+        pathType: prefix
+        service:
+          name:
+          port: 
