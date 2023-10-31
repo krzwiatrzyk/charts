@@ -6,7 +6,6 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}
-      keptn.sh/workload: gmod
   template:
     metadata:
       labels:
