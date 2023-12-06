@@ -1,4 +1,4 @@
-name: Release changed charts to S3
+name: Tempalte changed charts
 
 on:
   workflow_dispatch:
