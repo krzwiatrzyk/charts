@@ -8,6 +8,7 @@ on:
     paths:
     - charts/**
     types:
+    - opened
     - closed
 
 permissions:
