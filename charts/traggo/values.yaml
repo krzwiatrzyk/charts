@@ -33,3 +33,4 @@ env:
   TRAGGO_DEFAULT_USER_NAME: "admin"
   TRAGGO_DEFAULT_USER_PASS: "mynewpassword"
   TRAGGO_PORT: "3030"
+  

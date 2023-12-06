@@ -5,6 +5,7 @@
 ## Github Actions
 
 - [chart-releaser](https://github.com/helm/chart-releaser-action)
+- [changed files](https://github.com/marketplace/actions/changed-files)
 
 
 ## Tools
