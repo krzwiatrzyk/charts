@@ -37,8 +37,6 @@ jobs:
       uses: tj-actions/changed-files@v40
       with:
         dir_names: true
-        dir_names_exclude_current_dir: true
-        dir_names_include_files: "charts/**"
         dir_names_max_depth: 2
 
     - name: Show changes
@@ -49,7 +47,7 @@ jobs:
 
         echo "-------------"
 
-        echo 
+        echo ${{ steps.changed-files.outputs.all_changed_files }} 
   
 #   template:
 #     runs-on: ubuntu-latest
