@@ -35,6 +35,7 @@ jobs:
         dir_names_max_depth: 2
 
     - name: Show changes
+      id: list
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
           echo "$file was changed"
