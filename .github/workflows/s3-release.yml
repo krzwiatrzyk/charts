@@ -2,11 +2,11 @@ name: Release charts to S3
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-    -  main
-    paths:
-    - charts/**
+  # push:
+  #   branches:
+  #   -  main
+  #   paths:
+  #   - charts/**
 
 permissions:
     id-token: write
