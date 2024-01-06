@@ -27,6 +27,9 @@ resources:
 
 imagePullSecrets: []
 
+# -- Options: deployment | rollout
+controller: deployment
+
 args: []
 
 metrics:

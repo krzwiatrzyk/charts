@@ -1,0 +1,28 @@
+{{ if eq .Values.controller "rollout" }}
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  replicas: 1
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: {}
+      - setWeight: 40
+      - pause: {duration: 1}
+      - setWeight: 60
+      - pause: {duration: 1}
+      - setWeight: 80
+      - pause: {duration: 1}
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec: {{ include "common.pod" . | nindent 6 }}
+{{ end }}

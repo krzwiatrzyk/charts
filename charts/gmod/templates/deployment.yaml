@@ -1,3 +1,4 @@
+{{ if eq .Values.controller "deployment" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,29 +14,5 @@ spec:
         keptn.sh/app: gmod-app
         keptn.sh/workload: gmod
         keptn.sh/version: {{ .Values.image.tag }}
-    spec:
-      {{ if .Values.imagePullSecrets }}
-      imagePullSecrets: {{ .Values.imagePullSecrets | toYaml | nindent 8 }}
-      {{ end }}
-      containers:
-      - name: {{ .Release.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        resources: {{ .Values.resources | toYaml | nindent 10 }}
-        {{ if .Values.args }}
-        args: {{ .Values.args | toYaml | nindent 10 }}
-        {{ end }}
-        ports:
-        {{ range $portName, $portConfig := .Values.ports -}}
-        - containerPort: {{ $portConfig.port }}
-          name: {{ $portName }}
-        {{ end }}
-        volumeMounts:
-        - mountPath: /gmod
-          name: config
-
-      volumes:
-      - name: config
-        configMap:
-          name: {{ .Release.Name }}-config
-       
-
+    spec: {{ include "common.pod" . | nindent 6 }}
+{{ end }}
