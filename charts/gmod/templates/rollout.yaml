@@ -3,6 +3,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: {{ .Release.Name }}
+  annotations:
+    notifications.argoproj.io/subscribe.on-rollout-step-completed.ntfy: ''
+    notifications.argoproj.io/subscribe.on-rollout-updated.ntfy: ''
 spec:
   replicas: 1
   strategy:
