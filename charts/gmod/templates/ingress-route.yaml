@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: HostRegexp(`gmod.{{ .Values.environment }}.{suffix:.*}`)
+    kind: Rule
+    services:   
+    - kind: TraefikService
+      name: {{ .Release.Name }}
+    priority: 200
+  tls:
+    secretName: {{ .Release.Name }}-cert

@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: TraefikService
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  weighted:
+    services:
+      - name: {{ .Release.Name }}-stable 
+        port: 8080
+      - name: {{ .Release.Name }}-canary
+        port: 8080

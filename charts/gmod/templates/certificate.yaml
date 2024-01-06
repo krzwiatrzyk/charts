@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  dnsNames:
+  - 'gmod.{{ .Values.environment }}.windkube.com'
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: letsencrypt-route53-prod
+  secretName: {{ .Release.Name }}-cert

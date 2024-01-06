@@ -7,6 +7,11 @@ spec:
   replicas: 1
   strategy:
     canary:
+      canaryService: {{ .Release.Name }}-canary
+      stableService: {{ .Release.Name }}-stable
+      trafficRouting:
+        traefik:
+          weightedTraefikServiceName: {{ .Release.Name }}
       steps:
       - setWeight: 20
       - pause: {}
