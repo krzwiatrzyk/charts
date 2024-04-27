@@ -36,3 +36,9 @@ args: []
 
 metrics:
   enable: true
+
+ingress:
+  enabled: true
+  host: gmod.staging.windkube.com
+  # Available: nginx | traefik
+  provider: nginx
