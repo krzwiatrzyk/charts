@@ -7,9 +7,4 @@ volumes:
 - name: config
   configMap:
     name: {{ .Release.Name }}-config
-{{ if .Values.secretEnvs }} 
-envFrom:
-- secretRef:
-    name: {{.Values.secretEnvs }} 
-{{ end }}
 {{ end }}

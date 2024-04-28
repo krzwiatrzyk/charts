@@ -13,4 +13,9 @@
   volumeMounts:
   - mountPath: /gmod
     name: config
+  {{ if .Values.secretEnvs }} 
+  envFrom:
+  - secretRef:
+      name: {{.Values.secretEnvs }} 
+  {{ end }}
 {{ end }}
