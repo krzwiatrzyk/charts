@@ -42,3 +42,5 @@ ingress:
   host: gmod.staging.windkube.com
   # Available: nginx | traefik
   provider: nginx
+
+secretEnvs: null
