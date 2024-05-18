@@ -14,5 +14,6 @@ spec:
         keptn.sh/app: gmod-app
         keptn.sh/workload: gmod
         keptn.sh/version: {{ .Values.image.tag }}
+        metricbeat.io/scrape: "true"
     spec: {{ include "common.pod" . | nindent 6 }}
 {{ end }}
