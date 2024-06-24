@@ -697,6 +697,14 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/gmod-0.0.2/gmod-0.0.2.tgz
     version: 0.0.2
+  go-monorepo:
+  - apiVersion: v2
+    created: "2024-06-24T21:39:57.545750427Z"
+    digest: 224b336e19359615140f5b3682cf6ea08db73efc021a0f7bef08a38739ce1500
+    name: go-monorepo
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/go-monorepo-0.0.1/go-monorepo-0.0.1.tgz
+    version: 0.0.1
   kube-ns-suspender:
   - apiVersion: v2
     appVersion: v2.1.0
@@ -992,4 +1000,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2024-05-18T14:50:47.885991461Z"
+generated: "2024-06-24T21:39:57.545942326Z"
