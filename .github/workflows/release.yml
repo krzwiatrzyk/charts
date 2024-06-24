@@ -29,9 +29,6 @@ jobs:
       - name: Add k8s-at-home repo
         run: helm repo add k8s-at-home https://library-charts.k8s-at-home.com
 
-      - name: Add truecharts repo
-        run: helm repo add truecharts https://library-charts.truecharts.org
-
       - name: Add bitnami repo
         run: helm repo add bitnami https://charts.bitnami.com/bitnami 
 
