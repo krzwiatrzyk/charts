@@ -1,0 +1,12 @@
+{{ if eq .Values.controller "deployment" }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    spec: {{ include "common.pod" . | nindent 6 }}
+{{ end }}

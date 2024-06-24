@@ -1,0 +1,26 @@
+image:
+  repository: test
+  tag: test
+
+name: test
+
+resources:  
+  limits:
+    cpu: 50m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+imagePullSecrets: []
+
+# -- Options: deployment | rollout
+controller: deployment
+
+args: []
+
+secrets: 
+  enabled: true
+
+envs:
+  KEY: VALUE
