@@ -5,16 +5,13 @@
   {{ if .Values.args }}
   args: {{ .Values.args | toYaml | nindent 2 }}
   {{ end }}
-  {{ if .Values.secretEnvs }} 
   envFrom:
+  {{ if .Values.secrets.enabled }} 
   - secretRef:
-      name: {{.Values.secretEnvs }} 
+      name: {{ .Release.Name }}-envs
   {{ end }}
   {{ if .Values.envs }} 
-  env:
-    {{ range $key, $value := .Values.envs }}
-    - name: {{ $key }}
-      value: {{ $value }}
-    {{ end }}
+  - configMapRef:
+      name: {{ .Release.Name }}-envs
   {{ end }}
 {{ end }}

@@ -1,0 +1,7 @@
+{{ if .Values.envs }} 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-envs
+data: {{ .Values.envs | toYaml | nindent 2 }}
+{{ end }}

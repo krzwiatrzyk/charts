@@ -22,5 +22,5 @@ args: []
 secrets: 
   enabled: true
 
-envs:
+envs: {}
   # KEY: VALUE

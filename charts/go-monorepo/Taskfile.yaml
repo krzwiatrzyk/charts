@@ -1,0 +1,6 @@
+version: 3
+
+tasks:
+  template:test:
+    cmds:
+    - helm template -f values-test.yaml .
