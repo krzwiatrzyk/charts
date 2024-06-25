@@ -8,5 +8,8 @@ spec:
     matchLabels:
       app: {{ .Release.Name }}
   template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
     spec: {{ include "common.pod" . | nindent 6 }}
 {{ end }}
