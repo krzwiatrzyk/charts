@@ -40,7 +40,7 @@ metrics:
 ingress:
   enabled: true
   host: gmod.staging.windkube.com
-  # Available: nginx | traefik
-  provider: nginx
+  # Available: nginx | traefik | kong
+  provider: kong
 
 secretEnvs: null
