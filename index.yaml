@@ -706,6 +706,13 @@ entries:
     version: 0.0.2
   go-monorepo:
   - apiVersion: v2
+    created: "2024-08-06T20:37:29.971721959Z"
+    digest: 0f0c70411da6275d453c31742967be2fc63adfc755ec46093d34612e43c6155d
+    name: go-monorepo
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/go-monorepo-0.0.4/go-monorepo-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
     created: "2024-06-25T16:26:29.976424277Z"
     digest: c36df0479579c8f39cbd76835006e09de1d1374d54afb8af990485c4723b99e1
     name: go-monorepo
@@ -1021,4 +1028,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2024-08-05T13:42:03.301879346Z"
+generated: "2024-08-06T20:37:29.971899001Z"
