@@ -22,8 +22,12 @@ args: []
 secrets: 
   enabled: true
 
+# Those maps to configMap
 envs: {}
   # KEY: VALUE
+
+# Those maps to env key in pod
+env: {}
 
 rabbitmq:
   enabled: false

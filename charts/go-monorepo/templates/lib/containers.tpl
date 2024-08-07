@@ -14,4 +14,7 @@
   - configMapRef:
       name: {{ .Release.Name }}-envs
   {{ end }}
+  {{ if .Values.env }}
+  env: {{ .Values.env | toYaml | nindent 2 }}
+  {{ end }}
 {{ end }}
