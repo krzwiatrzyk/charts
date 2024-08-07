@@ -24,3 +24,13 @@ secrets:
 
 envs: {}
   # KEY: VALUE
+
+rabbitmq:
+  enabled: false
+  vhost:
+    name: "/"
+  # queue:
+  #   name:
+  # cluster:
+  #   name:
+  #   namespace:

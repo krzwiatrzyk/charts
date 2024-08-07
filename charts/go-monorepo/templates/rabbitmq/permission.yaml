@@ -1,0 +1,16 @@
+{{ if .Values.rabbitmq.enabled }}
+apiVersion: rabbitmq.com/v1beta1
+kind: Permission
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  vhost: {{ .Values.rabbitmq.vhost.name }}
+  user: {{ .Release.Name }}
+  permissions:
+    write: ".*"
+    configure: ".*"
+    read: ".*"
+  rabbitmqClusterReference:
+    name: {{ .Values.rabbitmq.cluster.name }}
+    namespace: {{ .Values.rabbitmq.cluster.namespace }}
+{{ end }}

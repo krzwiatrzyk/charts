@@ -1,0 +1,11 @@
+{{ if .Values.rabbitmq.enabled }}
+apiVersion: rabbitmq.com/v1beta1
+kind: Queue
+metadata:
+  name: {{ .Values.rabbitmq.queue.name }}
+spec:
+  name: {{ .Values.rabbitmq.queue.name }}
+  rabbitmqClusterReference:
+    name: {{ .Values.rabbitmq.cluster.name }}
+    namespace: {{ .Values.rabbitmq.cluster.namespace }}
+{{ end }}
