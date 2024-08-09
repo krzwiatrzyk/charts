@@ -5,7 +5,7 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   vhost: {{ .Values.rabbitmq.vhost.name | quote }}
-  user: 
+  userReference: 
     name: {{ .Release.Name | quote }}
   permissions:
     write: ".*"
