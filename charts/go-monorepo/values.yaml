@@ -33,6 +33,7 @@ rabbitmq:
   enabled: false
   vhost:
     name: "/"
+    create: false
   # queue:
   #   name:
   # cluster:

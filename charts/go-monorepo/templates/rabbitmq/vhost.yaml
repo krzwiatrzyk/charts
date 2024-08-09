@@ -1,0 +1,13 @@
+{{ if .Values.rabbitmq.enabled }}
+{{ if .Values.rabbitmq.vhost.create }}
+apiVersion: rabbitmq.com/v1beta1
+kind: Vhost
+metadata:
+  name: {{ .Values.rabbitmq.vhost.name }}
+spec:
+  name: {{ .Values.rabbitmq.vhost.name }}
+  rabbitmqClusterReference:
+    name: {{ .Values.rabbitmq.cluster.name }}
+    namespace: {{ .Values.rabbitmq.cluster.namespace }}
+{{ end }}
+{{ end }}
