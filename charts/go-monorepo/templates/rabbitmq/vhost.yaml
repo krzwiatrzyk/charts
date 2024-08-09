@@ -3,11 +3,11 @@
 apiVersion: rabbitmq.com/v1beta1
 kind: Vhost
 metadata:
-  name: {{ .Values.rabbitmq.vhost.name }}
+  name: {{ .Release.Name }}
 spec:
-  name: {{ .Values.rabbitmq.vhost.name }}
+  name: {{ .Values.rabbitmq.vhost.name | quote }}
   rabbitmqClusterReference:
-    name: {{ .Values.rabbitmq.cluster.name }}
+    name: {{ .Values.rabbitmq.cluster.name | quote }}
     namespace: {{ .Values.rabbitmq.cluster.namespace }}
 {{ end }}
 {{ end }}

@@ -4,7 +4,7 @@ kind: Permission
 metadata:
   name: {{ .Release.Name }}
 spec:
-  vhost: {{ .Values.rabbitmq.vhost.name }}
+  vhost: {{ .Values.rabbitmq.vhost.name | quote }}
   user: {{ .Release.Name | quote }}
   permissions:
     write: ".*"
