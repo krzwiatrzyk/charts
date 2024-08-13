@@ -1,4 +1,6 @@
 {{ if .Values.rabbitmq.enabled }}
+{{ if .Values.rabbitmq.queue }}
+{{ if .Values.rabbitmq.queue.create }}
 apiVersion: rabbitmq.com/v1beta1
 kind: Queue
 metadata:
@@ -8,4 +10,6 @@ spec:
   rabbitmqClusterReference:
     name: {{ .Values.rabbitmq.cluster.name }}
     namespace: {{ .Values.rabbitmq.cluster.namespace }}
+{{ end }}
+{{ end }}
 {{ end }}

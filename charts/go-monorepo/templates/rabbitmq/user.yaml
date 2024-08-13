@@ -1,4 +1,5 @@
 {{ if .Values.rabbitmq.enabled }}
+{{ if .Values.rabbitmq.user.create }}
 apiVersion: rabbitmq.com/v1beta1
 kind: User
 metadata:
@@ -7,4 +8,9 @@ spec:
   rabbitmqClusterReference:
     name: {{ .Values.rabbitmq.cluster.name }}
     namespace: {{ .Values.rabbitmq.cluster.namespace }}
+  {{ if .Values.rabbitmq.user.username }}
+  importCredentialsSecret:
+    name: {{ .Release.Name }}
+  {{ end }}
+{{ end }}
 {{ end }}

@@ -34,8 +34,13 @@ rabbitmq:
   vhost:
     name: "/"
     create: false
+  user:
+    create: true
+    username: ""
+    password: ""
   # queue:
   #   name:
+  #   create: true
   # cluster:
   #   name:
   #   namespace:
