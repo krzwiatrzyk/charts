@@ -22,6 +22,12 @@ args: []
 secrets: 
   enabled: true
 
+# port: 8088
+
+ingress:
+  enabled: false
+  type: kong
+  
 # Those maps to configMap
 envs: {}
   # KEY: VALUE

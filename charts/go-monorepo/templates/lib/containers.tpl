@@ -17,4 +17,9 @@
   {{ if .Values.env }}
   env: {{ .Values.env | toYaml | nindent 2 }}
   {{ end }}
+  {{ if .Values.port }}
+  ports:
+  - containerPort: {{ .Values.port }}
+    name: http
+  {{ end }}
 {{ end }}
