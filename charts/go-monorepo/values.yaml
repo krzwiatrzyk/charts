@@ -50,3 +50,12 @@ rabbitmq:
   # cluster:
   #   name:
   #   namespace:
+
+init:
+  enabled: false
+  command: 
+  - river 
+  args:
+  - migrate-up 
+  - --database-url 
+  - "$DATABASE_URL"

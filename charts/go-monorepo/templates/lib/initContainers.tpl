@@ -1,10 +1,9 @@
-{{ define "common.containers" }}
-- name: {{ .Values.name }}
+{{ define "common.initContainers" }}
+- name: init
   image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
   resources: {{ .Values.resources | toYaml | nindent 4 }}
-  {{ if .Values.args }}
-  args: {{ .Values.args | toYaml | nindent 2 }}
-  {{ end }}
+  command: {{ .Values.init.command | toYaml | nindent 4 }}
+  args:  {{ .Values.init.args | toYaml | nindent 4 }}
   envFrom:
   {{ if .Values.secrets.enabled }} 
   - secretRef:
@@ -16,10 +15,5 @@
   {{ end }}
   {{ if .Values.env }}
   env: {{ .Values.env | toYaml | nindent 2 }}
-  {{ end }}
-  {{ if .Values.port }}
-  ports:
-  - containerPort: {{ .Values.port }}
-    name: http
   {{ end }}
 {{ end }}
