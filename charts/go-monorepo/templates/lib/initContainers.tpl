@@ -1,4 +1,5 @@
 {{ define "common.initContainers" }}
+{{ if .Values.init.enabled }}
 - name: init
   image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
   resources: {{ .Values.resources | toYaml | nindent 4 }}
@@ -16,4 +17,5 @@
   {{ if .Values.env }}
   env: {{ .Values.env | toYaml | nindent 2 }}
   {{ end }}
+{{ end }}
 {{ end }}
