@@ -11,5 +11,7 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec: {{ include "common.pod" . | nindent 6 }}
 {{ end }}
