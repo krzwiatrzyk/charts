@@ -12,6 +12,8 @@ spec:
       labels:
         app: {{ .Release.Name }}
       annotations:
+        {{ if .Values.envs }} 
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        {{ end }}
     spec: {{ include "common.pod" . | nindent 6 }}
 {{ end }}
