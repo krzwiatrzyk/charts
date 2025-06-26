@@ -25,7 +25,7 @@ pangolin:
 
 persistence:
   # storageClass: 
-  size: 1Gb
+  size: 1Gi
 
 gerbil:
   image:

@@ -2,3 +2,4 @@ version: 3
 
 tasks:
   template: helm template .
+  template:statefulset: helm template . --show-only templates/pangolin/statefulset.yaml
