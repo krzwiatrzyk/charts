@@ -896,6 +896,20 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/ohmyform-0.0.1/ohmyform-0.0.1.tgz
     version: 0.0.1
+  pangolin:
+  - apiVersion: v2
+    created: "2025-06-26T17:11:40.433532939Z"
+    description: 'Pangolin is a self-hosted tunneled reverse proxy server with identity
+      and access control, designed to securely expose private resources on distributed
+      networks. Acting as a central hub, it connects isolated networks — even those
+      behind restrictive firewalls — through encrypted tunnels, enabling easy access
+      to remote services without opening ports. '
+    digest: abb1d995850445355b77bf7c806806916665c73ec8a18c2d04b063eb55263aaf
+    name: pangolin
+    type: application
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/pangolin-0.1.0/pangolin-0.1.0.tgz
+    version: 0.1.0
   pav:
   - apiVersion: v2
     appVersion: 0.0.3
@@ -1105,4 +1119,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2024-08-20T16:05:14.487549331Z"
+generated: "2025-06-26T17:11:40.433686998Z"
