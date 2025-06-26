@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: pangolin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pangolin
+  template:
+    metadata:
+      labels:
+        app: pangolin
+    spec:
+      containers:
+        - name: pangolin
+          image: "{{ .Values.pangolin.image.registry }}/{{ .Values.pangolin.image.repository }}:{{ .Values.pangolin.image.tag }}"
+          {{- with .Values.gerbil.ports }}
+          ports:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.pangolin.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+            - name: data
+              mountPath: /app/config
+            - name: config
+              mountPath: /app/config/config.yaml
+              subPath: config.yaml
+      volumes:
+        - name: config
+          configMap:
+            name: pangolin-config
+            items:
+            - key: config.yaml
+              path: config.yaml
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      {{- if .Values.persistence.storageClass }}
+      storageClassName: {{ .Values.persistence.storageClass }}
+      {{- end }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.size }}

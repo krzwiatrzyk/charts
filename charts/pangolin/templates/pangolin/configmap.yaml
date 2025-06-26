@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pangolin-config
+data:
+  config.yaml: |
+    {{- .Values.config | toYaml | nindent 4 }}

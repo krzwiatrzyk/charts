@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gerbil
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gerbil
+  template:
+    metadata:
+      labels:
+        app: gerbil
+    spec:
+      containers:
+        - name: gerbil
+          image: "{{ .Values.gerbil.image.registry }}/{{ .Values.gerbil.image.repository }}:{{ .Values.gerbil.image.tag }}"
+          {{- with .Values.gerbil.ports }}
+          ports:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.gerbil.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+

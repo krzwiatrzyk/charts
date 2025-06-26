@@ -1,0 +1,45 @@
+# Override this with real Pangoling config!
+config: 
+  a: 1
+  b: 2
+
+pangolin: 
+  image:
+    registry: fosrl
+    repository: pangolin
+    tag: 1.5.1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+  ports:
+  - name: external
+    containerPort: 3000
+  - name: internal
+    containerPort: 3001
+  - name: next
+    containerPort: 3002
+
+persistence:
+  # storageClass: 
+  size: 1Gb
+
+gerbil:
+  image:
+    registry: fosrl
+    repository: gerbil
+    tag: 1.0.0
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+  ports:
+    - name: start
+      containerPort: 51820
+      protocol: UDP

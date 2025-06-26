@@ -1,0 +1,10 @@
+apiVersion: v2
+name: pangolin
+description: |
+  Pangolin is a self-hosted tunneled reverse proxy server with identity and access control,
+  designed to securely expose private resources on distributed networks.
+  Acting as a central hub, it connects isolated networks — even those behind restrictive firewalls
+  — through encrypted tunnels, enabling easy access to remote services without opening ports.
+
+type: application
+version: 0.1.0
