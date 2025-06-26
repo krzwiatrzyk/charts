@@ -27,4 +27,9 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-
+          volumeMounts:
+            - name: config
+              mountPath: /var/config
+      volumes:
+        - name: config
+          emptyDir: {}
