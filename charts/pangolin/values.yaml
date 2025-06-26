@@ -1,9 +1,9 @@
 # Override this with real Pangoling config!
-config: 
+config:
   a: 1
   b: 2
 
-pangolin: 
+pangolin:
   image:
     registry: fosrl
     repository: pangolin
@@ -16,18 +16,23 @@ pangolin:
       cpu: 100m
       memory: 128Mi
   ports:
-  - name: external
-    containerPort: 3000
-  - name: internal
-    containerPort: 3001
-  - name: next
-    containerPort: 3002
+    - name: external
+      containerPort: 3000
+    - name: internal
+      containerPort: 3001
+    - name: next
+      containerPort: 3002
 
 persistence:
-  # storageClass: 
+  # storageClass:
   size: 1Gi
 
 gerbil:
+  args:
+    - --reachableAt=http://gerbil:3003
+    - --generateAndSaveKeyTo=/var/config/key
+    - --remoteConfig=http://pangolin:3001/api/v1/gerbil/get-config
+    - --reportBandwidthTo=http://pangolin:3001/api/v1/gerbil/receive-bandwidth
   image:
     registry: fosrl
     repository: gerbil
@@ -43,3 +48,5 @@ gerbil:
     - name: start
       containerPort: 51820
       protocol: UDP
+    - name: http
+      containerPort: 3003

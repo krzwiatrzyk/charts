@@ -14,6 +14,10 @@ spec:
     spec:
       containers:
         - name: gerbil
+          {{- with .Values.gerbil.args }}
+          args:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           image: "{{ .Values.gerbil.image.registry }}/{{ .Values.gerbil.image.repository }}:{{ .Values.gerbil.image.tag }}"
           {{- with .Values.gerbil.ports }}
           ports:
