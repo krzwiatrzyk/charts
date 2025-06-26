@@ -27,6 +27,11 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+                - SYS_MODULE
           volumeMounts:
             - name: config
               mountPath: /var/config
