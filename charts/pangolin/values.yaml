@@ -30,27 +30,3 @@ persistence:
   # storageClass:
   size: 1Gi
 
-gerbil:
-  args:
-    - --reachableAt=http://gerbil:3003
-    - --generateAndSaveKeyTo=/var/config/key
-    - --remoteConfig=http://pangolin:3001/api/v1/gerbil/get-config
-    - --reportBandwidthTo=http://pangolin:3001/api/v1/gerbil/receive-bandwidth
-  image:
-    registry: fosrl
-    repository: gerbil
-    tag: 1.0.0
-  resources:
-    requests:
-      cpu: 50m
-      memory: 64Mi
-    limits:
-      cpu: 100m
-      memory: 128Mi
-  ports:
-    - name: start
-      containerPort: 51820
-      hostPort: 51820
-      protocol: UDP
-    - name: http
-      containerPort: 3003
