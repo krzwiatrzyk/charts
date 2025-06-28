@@ -24,7 +24,6 @@ spec:
           {{- range . }}
             - name: {{ .name }}
               port: {{ .containerPort }}
-              targetPort: {{ .containerPort }}
               protocol: {{ .protocol | default "TCP" }}
               {{- if .hostPort }}
               hostPort: {{ .hostPort }}
