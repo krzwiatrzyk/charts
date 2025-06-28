@@ -47,12 +47,4 @@ gerbil:
     limits:
       cpu: 100m
       memory: 128Mi
-  ports:
-    - name: start
-      containerPort: 51820
-      nodePort: 31820
-      protocol: UDP
-      # nodePort: 30820  # Optional: NodePort for WireGuard (30000-32767)
-    - name: http
-      containerPort: 3003
-      # nodePort: 30003  # Optional: NodePort for HTTP API (30000-32767)
+

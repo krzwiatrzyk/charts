@@ -14,19 +14,12 @@ spec:
     spec:
       containers:
         - name: gerbil
+          hostNetwork: true
           {{- with .Values.gerbil.args }}
           args:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           image: "{{ .Values.gerbil.image.registry }}/{{ .Values.gerbil.image.repository }}:{{ .Values.gerbil.image.tag }}"
-          {{- with .Values.gerbil.ports }}
-          ports:
-          {{- range . }}
-            - name: {{ .name }}
-              containerPort: {{ .containerPort }}
-              protocol: {{ .protocol | default "TCP" }}
-          {{- end }}
-          {{- end }}
           {{- with .Values.gerbil.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
