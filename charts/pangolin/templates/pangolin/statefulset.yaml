@@ -11,11 +11,13 @@ spec:
     metadata:
       labels:
         app: pangolin
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/pangolin/configmap.yaml") . | sha256sum }}
     spec:
       containers:
         - name: pangolin
           image: "{{ .Values.pangolin.image.registry }}/{{ .Values.pangolin.image.repository }}:{{ .Values.pangolin.image.tag }}"
-          {{- with .Values.gerbil.ports }}
+          {{- with .Values.pangolin.ports }}
           ports:
             {{- toYaml . | nindent 12 }}
           {{- end }}

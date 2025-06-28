@@ -21,7 +21,11 @@ spec:
           image: "{{ .Values.gerbil.image.registry }}/{{ .Values.gerbil.image.repository }}:{{ .Values.gerbil.image.tag }}"
           {{- with .Values.gerbil.ports }}
           ports:
-            {{- toYaml . | nindent 12 }}
+          {{- range . }}
+            - name: {{ .name }}
+              containerPort: {{ .containerPort }}
+              protocol: {{ .protocol | default "TCP" }}
+          {{- end }}
           {{- end }}
           {{- with .Values.gerbil.resources }}
           resources:

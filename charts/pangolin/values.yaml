@@ -18,10 +18,13 @@ pangolin:
   ports:
     - name: external
       containerPort: 3000
+      # nodePort: 30000  # Optional: NodePort for external access (30000-32767)
     - name: internal
       containerPort: 3001
+      # nodePort: 30001  # Optional: NodePort for internal access (30000-32767)
     - name: next
       containerPort: 3002
+      # nodePort: 30002  # Optional: NodePort for next service (30000-32767)
 
 persistence:
   # storageClass:
@@ -47,6 +50,9 @@ gerbil:
   ports:
     - name: start
       containerPort: 51820
+      nodePort: 31820
       protocol: UDP
+      # nodePort: 30820  # Optional: NodePort for WireGuard (30000-32767)
     - name: http
       containerPort: 3003
+      # nodePort: 30003  # Optional: NodePort for HTTP API (30000-32767)

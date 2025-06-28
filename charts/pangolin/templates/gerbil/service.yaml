@@ -3,13 +3,16 @@ kind: Service
 metadata:
   name: gerbil
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     {{- range .Values.gerbil.ports }}
+    {{ if .nodePort }}
     - name: {{ .name }}
       port: {{ .containerPort }}
       targetPort: {{ .containerPort }}
       protocol: {{ .protocol | default "TCP" }}
+      nodePort: {{ .nodePort }}
+    {{- end }}
     {{- end }}
   selector:
     app: gerbil
