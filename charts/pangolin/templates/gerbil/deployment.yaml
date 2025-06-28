@@ -12,9 +12,9 @@ spec:
       labels:
         app: gerbil
     spec:
+      hostNetwork: true
       containers:
         - name: gerbil
-          hostNetwork: true
           {{- with .Values.gerbil.args }}
           args:
             {{- toYaml . | nindent 12 }}

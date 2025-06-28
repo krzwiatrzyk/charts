@@ -7,4 +7,4 @@ description: |
   — through encrypted tunnels, enabling easy access to remote services without opening ports.
 
 type: application
-version: 0.5.0
+version: 0.5.1
