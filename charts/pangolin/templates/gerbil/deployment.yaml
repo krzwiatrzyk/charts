@@ -12,7 +12,6 @@ spec:
       labels:
         app: gerbil
     spec:
-      hostNetwork: true
       containers:
         - name: gerbil
           {{- with .Values.gerbil.args }}
@@ -20,6 +19,18 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           image: "{{ .Values.gerbil.image.registry }}/{{ .Values.gerbil.image.repository }}:{{ .Values.gerbil.image.tag }}"
+          {{- with .Values.gerbil.ports }}
+          ports:
+          {{- range . }}
+            - name: {{ .name }}
+              port: {{ .containerPort }}
+              targetPort: {{ .containerPort }}
+              protocol: {{ .protocol | default "TCP" }}
+              {{- if .hostPort }}
+              hostPort: {{ .hostPort }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
           {{- with .Values.gerbil.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
