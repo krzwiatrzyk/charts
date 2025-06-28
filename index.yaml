@@ -898,6 +898,19 @@ entries:
     version: 0.0.1
   pangolin:
   - apiVersion: v2
+    created: "2025-06-28T10:16:39.445987865Z"
+    description: 'Pangolin is a self-hosted tunneled reverse proxy server with identity
+      and access control, designed to securely expose private resources on distributed
+      networks. Acting as a central hub, it connects isolated networks — even those
+      behind restrictive firewalls — through encrypted tunnels, enabling easy access
+      to remote services without opening ports. '
+    digest: aa545f82a4f297122796ad833e2c26c1621ec20fee054c56149d5e035df949e2
+    name: pangolin
+    type: application
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/pangolin-0.5.0/pangolin-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
     created: "2025-06-28T10:07:00.274682075Z"
     description: 'Pangolin is a self-hosted tunneled reverse proxy server with identity
       and access control, designed to securely expose private resources on distributed
@@ -1197,4 +1210,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2025-06-28T10:07:00.274897851Z"
+generated: "2025-06-28T10:16:39.446126034Z"
