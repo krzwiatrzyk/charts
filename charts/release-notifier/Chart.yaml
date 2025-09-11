@@ -1,0 +1,7 @@
+apiVersion: v2
+name: release-notifier
+description: |
+  Notificate on new projects releases with UI
+type: application
+version: 0.2.0
+
