@@ -1186,6 +1186,16 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/postgresql-backup-to-minio-0.0.1/postgresql-backup-to-minio-0.0.1.tgz
     version: 0.0.1
+  release-notifier:
+  - apiVersion: v2
+    created: "2025-09-11T15:15:09.394554788Z"
+    description: 'Notificate on new projects releases with UI '
+    digest: 3fd96e80ba04e67f2f77cbd54433b8192c6e20f7a056b871943f7a1cd1756cd7
+    name: release-notifier
+    type: application
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/release-notifier-0.2.0/release-notifier-0.2.0.tgz
+    version: 0.2.0
   tooljet:
   - annotations:
       artifacthub.io/changes: |
@@ -1327,4 +1337,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2025-06-28T22:49:43.855473838Z"
+generated: "2025-09-11T15:15:09.394784818Z"
