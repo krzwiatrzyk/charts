@@ -24,6 +24,24 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 
 {{/*
+Create a component-specific fully qualified app name.
+*/}}
+{{- define "..componentFullname" -}}
+{{- $component := .component -}}
+{{- $root := .root -}}
+{{- if $root.Values.fullnameOverride }}
+{{- printf "%s-%s" $root.Values.fullnameOverride $component | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $name := default $root.Chart.Name $root.Values.nameOverride }}
+{{- if contains $name $root.Release.Name }}
+{{- printf "%s-%s" $root.Release.Name $component | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- printf "%s-%s-%s" $root.Release.Name $name $component | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "..chart" -}}
@@ -43,11 +61,36 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*
+Component-specific common labels
+*/}}
+{{- define "..componentLabels" -}}
+{{- $component := .component -}}
+{{- $root := .root -}}
+helm.sh/chart: {{ include "..chart" $root }}
+{{ include "..componentSelectorLabels" . }}
+{{- if $root.Chart.AppVersion }}
+app.kubernetes.io/version: {{ $root.Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ $root.Release.Service }}
+{{- end }}
+
+{{/*
 Selector labels
 */}}
 {{- define "..selectorLabels" -}}
 app.kubernetes.io/name: {{ include "..name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Component-specific selector labels
+*/}}
+{{- define "..componentSelectorLabels" -}}
+{{- $component := .component -}}
+{{- $root := .root -}}
+app.kubernetes.io/name: {{ include "..name" $root }}
+app.kubernetes.io/instance: {{ $root.Release.Name }}
+app.kubernetes.io/component: {{ $component }}
 {{- end }}
 
 {{/*

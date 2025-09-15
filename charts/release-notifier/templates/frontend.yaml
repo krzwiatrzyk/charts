@@ -1,0 +1,7 @@
+{{- $componentContext := dict "component" "frontend" "root" . }}
+
+{{- include "..deployment" $componentContext }}
+
+---
+
+{{- include "..service" $componentContext }}
