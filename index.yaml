@@ -1188,6 +1188,15 @@ entries:
     version: 0.0.1
   release-notifier:
   - apiVersion: v2
+    created: "2025-09-15T19:00:34.395447574Z"
+    description: 'Notificate on new projects releases with UI '
+    digest: 15da3ccf52d900ff0d22cbfc39cf24c18125196f285e4fa7a4bb45c050f4575c
+    name: release-notifier
+    type: application
+    urls:
+    - https://github.com/krzwiatrzyk/charts/releases/download/release-notifier-0.4.1/release-notifier-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
     created: "2025-09-15T18:12:40.632553651Z"
     description: 'Notificate on new projects releases with UI '
     digest: 1cc743b6deb0047132d97fba3d80793714988ad4d4c4ca3399b3d9028922ccd9
@@ -1355,4 +1364,4 @@ entries:
     urls:
     - https://github.com/krzwiatrzyk/charts/releases/download/zitadel-3.0.1/zitadel-3.0.1.tgz
     version: 3.0.1
-generated: "2025-09-15T18:12:40.632759939Z"
+generated: "2025-09-15T19:00:34.395624787Z"
