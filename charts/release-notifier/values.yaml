@@ -82,9 +82,9 @@ backend:
     PB_MIGRATE_DATABASE: true
     ASYNQ_REDIS_ADDR: redis.redis:6379
 
-  envFrom:
-    - secretRef:
-        name: release-notifier
+  # envFrom:
+  #   - secretRef:
+  #       name: release-notifier
 
 frontend:
   image:
