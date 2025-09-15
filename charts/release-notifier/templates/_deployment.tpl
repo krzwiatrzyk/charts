@@ -54,6 +54,10 @@ spec:
             - name: http
               containerPort: {{ $values.service.port }}
               protocol: TCP
+          {{- if $values.envFrom }}
+          envFrom:
+            {{- toYaml $values.envFrom | nindent 12 }}
+          {{- end }}
           {{- if $values.envs }}
           env:
             {{- range $key, $value := $values.envs }}
