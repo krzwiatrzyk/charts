@@ -25,6 +25,18 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- if .Values.pangolin.startupProbe.enabled }}
+          startupProbe:
+            {{- omit .Values.pangolin.startupProbe "enabled" | toYaml | nindent 12 }}
+          {{- end }}
+          {{- if .Values.pangolin.livenessProbe.enabled }}
+          livenessProbe:
+            {{- omit .Values.pangolin.livenessProbe "enabled" | toYaml | nindent 12 }}
+          {{- end }}
+          {{- if .Values.pangolin.readinessProbe.enabled }}
+          readinessProbe:
+            {{- omit .Values.pangolin.readinessProbe "enabled" | toYaml | nindent 12 }}
+          {{- end }}
           volumeMounts:
             - name: data
               mountPath: /app/config
